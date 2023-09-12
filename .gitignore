@@ -1,0 +1,10 @@
+# exclude images used in light dark
+01/*
+!01/images
+!01/code
+
+01/images/*
+!01/images/used_images
+
+01/images/used_images/*
+!01/images/used_images/light_dark
