@@ -1,3 +1,8 @@
+# single files
+
+01/code/tasks/2.2/contrast.ipynb
+01/code/tasks/2.2/dark.ipynb
+
 # exclude images used in light dark
 01/*
 !01/images
