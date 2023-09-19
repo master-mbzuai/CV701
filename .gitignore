@@ -10,6 +10,7 @@
 
 01/images/used_images/*
 !01/images/used_images/light_dark
+!01/images/used_images/examples
 
 
 # single files
