@@ -11,7 +11,6 @@
 01/images/used_images/*
 !01/images/used_images/light_dark
 
-*png
 
 # single files
 01/code/tasks/2.2/contrast.ipynb
