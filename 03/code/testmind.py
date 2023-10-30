@@ -10,6 +10,8 @@ import torchvision.transforms as transforms
 from dataset import ImageWoof
 from matplotlib import pyplot as plt
 
+from torchinfo import summary
+
 batch_size = 128
 
 class ImageClassification(MicroMind):
@@ -17,7 +19,7 @@ class ImageClassification(MicroMind):
         super().__init__(*args, **kwargs)
 
         self.modules["classifier"] = PhiNet(
-            (3, 160, 160), include_top=True, num_classes=10, alpha=1
+            (3, 160, 160), include_top=True, num_classes=10, alpha=2.1
         )
 
     def forward(self, batch):
@@ -29,8 +31,11 @@ class ImageClassification(MicroMind):
 
 if __name__ == "__main__":
     hparams = parse_arguments()
-    hparams.output_folder = 'test_1'
+    hparams.output_folder = 'test_3'
     m = ImageClassification(hparams)
+
+    summary(m.modules["classifier"], input_size=(batch_size, 3, 160, 160))
+
 
     def compute_accuracy(pred, batch):
         tmp = (pred.argmax(1) == batch[1]).float()
@@ -74,7 +79,7 @@ if __name__ == "__main__":
     acc = Metric(name="accuracy", fn=compute_accuracy)
 
     m.train(
-        epochs=25,
+        epochs=50,
         datasets={"train": trainloader, "val": valloader},
         metrics=[acc],
         debug=hparams.debug,
