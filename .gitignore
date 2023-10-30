@@ -4,6 +4,9 @@
 !01/code
 
 *.zip
+*.tgz
+*.csv
+*.JPEG
 
 01/images/*
 !01/images/used_images
