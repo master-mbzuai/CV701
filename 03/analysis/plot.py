@@ -23,7 +23,7 @@ def extract_metrics(input_string):
     return extracted_data
 
 
-path = "../code/test_2/exp/"
+path = "../code/test_5/exp/"
 #open text file in read mode
 #text_file = open("../logs/1000_log.txt", "r")
 text_file = open(path + "train_log.txt", "r")

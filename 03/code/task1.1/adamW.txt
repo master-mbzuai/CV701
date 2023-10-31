@@ -1,0 +1,109 @@
+100%|██████████| 127/127 [00:39<00:00,  3.23batch/s, loss=147, lr=0.001]
+ train loss: 147.0391 accuracy: 10.0702
+100%|██████████| 15/15 [00:02<00:00,  6.54batch/s]
+Saving the best model...
+ val loss: 2.2973 accuracy: 8.4257 best_accuracy: 8.4257
+epoch number: 1
+100%|██████████| 127/127 [00:18<00:00,  6.97batch/s, loss=145, lr=0.001]
+ train loss: 144.9770 accuracy: 11.9783
+100%|██████████| 15/15 [00:01<00:00,  7.53batch/s]
+Saving the best model...
+ val loss: 2.1295 accuracy: 18.8470 best_accuracy: 18.8470
+epoch number: 2
+100%|██████████| 127/127 [00:19<00:00,  6.57batch/s, loss=135, lr=0.001]
+ train loss: 134.6157 accuracy: 19.7218
+100%|██████████| 15/15 [00:02<00:00,  7.34batch/s]
+Saving the best model...
+ val loss: 2.0799 accuracy: 21.3969 best_accuracy: 21.3969
+epoch number: 3
+100%|██████████| 127/127 [00:18<00:00,  6.74batch/s, loss=130, lr=0.001]
+ train loss: 130.0336 accuracy: 22.3563
+100%|██████████| 15/15 [00:02<00:00,  6.64batch/s]
+Saving the best model...
+ val loss: 2.0231 accuracy: 21.5078 best_accuracy: 21.5078
+epoch number: 4
+100%|██████████| 127/127 [00:19<00:00,  6.46batch/s, loss=128, lr=0.001]
+ train loss: 127.5156 accuracy: 24.8184
+100%|██████████| 15/15 [00:02<00:00,  6.93batch/s]
+Saving the best model...
+ val loss: 2.0099 accuracy: 24.0576 best_accuracy: 24.0576
+epoch number: 5
+100%|██████████| 127/127 [00:18<00:00,  6.80batch/s, loss=124, lr=0.001]
+ train loss: 124.3672 accuracy: 26.3080
+100%|██████████| 15/15 [00:02<00:00,  6.61batch/s]
+Saving the best model...
+ val loss: 1.9909 accuracy: 24.9446 best_accuracy: 24.9446
+epoch number: 6
+100%|██████████| 127/127 [00:19<00:00,  6.67batch/s, loss=120, lr=0.001]
+ train loss: 120.1574 accuracy: 28.4501
+100%|██████████| 15/15 [00:02<00:00,  6.86batch/s]
+Saving the best model...
+ val loss: 1.9760 accuracy: 26.9401 best_accuracy: 26.9401
+epoch number: 7
+100%|██████████| 127/127 [00:19<00:00,  6.58batch/s, loss=115, lr=0.001]
+ train loss: 115.0550 accuracy: 32.8819
+100%|██████████| 15/15 [00:02<00:00,  6.79batch/s]
+Saving the best model...
+ val loss: 1.9325 accuracy: 30.1552 best_accuracy: 30.1552
+epoch number: 8
+100%|██████████| 127/127 [00:18<00:00,  6.87batch/s, loss=110, lr=0.001]
+ train loss: 109.9768 accuracy: 35.6395
+100%|██████████| 15/15 [00:02<00:00,  6.99batch/s]
+ val loss: 1.9692 accuracy: 28.9357 best_accuracy: 30.1552
+epoch number: 9
+100%|██████████| 127/127 [00:19<00:00,  6.54batch/s, loss=103, lr=0.001]
+ train loss: 102.7873 accuracy: 39.5667
+100%|██████████| 15/15 [00:02<00:00,  6.79batch/s]
+ val loss: 1.9772 accuracy: 29.6009 best_accuracy: 30.1552
+epoch number: 10
+100%|██████████| 127/127 [00:19<00:00,  6.56batch/s, loss=92.5, lr=0.001]
+ train loss: 92.5423 accuracy: 46.4976
+100%|██████████| 15/15 [00:02<00:00,  6.89batch/s]
+ val loss: 2.0751 accuracy: 28.9357 best_accuracy: 30.1552
+epoch number: 11
+100%|██████████| 127/127 [00:20<00:00,  6.31batch/s, loss=80.3, lr=0.001]
+ train loss: 80.2944 accuracy: 53.9702
+100%|██████████| 15/15 [00:02<00:00,  6.47batch/s]
+Saving the best model...
+ val loss: 2.2733 accuracy: 30.2661 best_accuracy: 30.2661
+epoch number: 12
+100%|██████████| 127/127 [00:20<00:00,  6.22batch/s, loss=65.9, lr=0.001]
+ train loss: 65.8524 accuracy: 62.4154
+100%|██████████| 15/15 [00:02<00:00,  6.76batch/s]
+ val loss: 2.5842 accuracy: 29.1574 best_accuracy: 30.2661
+epoch number: 13
+100%|██████████| 127/127 [00:20<00:00,  6.32batch/s, loss=50.1, lr=0.001]
+ train loss: 50.1344 accuracy: 71.5992
+100%|██████████| 15/15 [00:02<00:00,  6.73batch/s]
+ val loss: 3.4117 accuracy: 27.8271 best_accuracy: 30.2661
+epoch number: 14
+100%|██████████| 127/127 [00:19<00:00,  6.43batch/s, loss=38.4, lr=0.001]
+ train loss: 38.3519 accuracy: 79.2441
+100%|██████████| 15/15 [00:02<00:00,  6.85batch/s]
+ val loss: 4.1799 accuracy: 28.3814 best_accuracy: 30.2661
+epoch number: 15
+100%|██████████| 127/127 [00:19<00:00,  6.51batch/s, loss=29.4, lr=0.001]
+ train loss: 29.3897 accuracy: 84.1561
+100%|██████████| 15/15 [00:02<00:00,  6.60batch/s]
+ val loss: 4.6066 accuracy: 29.2683 best_accuracy: 30.2661
+epoch number: 16
+100%|██████████| 127/127 [00:19<00:00,  6.47batch/s, loss=22.7, lr=0.001]
+ train loss: 22.6528 accuracy: 87.8986
+100%|██████████| 15/15 [00:02<00:00,  6.90batch/s]
+ val loss: 5.1296 accuracy: 26.2749 best_accuracy: 30.2661
+epoch number: 17
+100%|██████████| 127/127 [00:20<00:00,  6.31batch/s, loss=17.8, lr=0.001]
+ train loss: 17.7647 accuracy: 91.0132
+100%|██████████| 15/15 [00:02<00:00,  6.61batch/s]
+ val loss: 5.5130 accuracy: 27.3836 best_accuracy: 30.2661
+epoch number: 18
+100%|██████████| 127/127 [00:20<00:00,  6.29batch/s, loss=11.7, lr=0.001]
+ train loss: 11.6691 accuracy: 93.7462
+100%|██████████| 15/15 [00:02<00:00,  6.32batch/s]
+ val loss: 6.6421 accuracy: 27.8271 best_accuracy: 30.2661
+epoch number: 19
+100%|██████████| 127/127 [00:22<00:00,  5.65batch/s, loss=11.9, lr=0.001]
+ train loss: 11.9295 accuracy: 94.1893
+100%|██████████| 15/15 [00:02<00:00,  5.63batch/s]
+ val loss: 6.6588 accuracy: 28.2705 best_accuracy: 30.2661
+Total training and inference time is: 457.1969861984253
