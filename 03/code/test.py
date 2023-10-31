@@ -92,7 +92,7 @@ def START_seed():
 
 lr = 0.01 
 epochs=20
-device = 'cuda'
+device = 'cpu'
 train_batch_size = 128
 test_batch_size = 128
 
@@ -102,10 +102,10 @@ START_seed()
 train_transform = transforms.Compose([
     transforms.RandomHorizontalFlip(),
     transforms.RandomRotation(10),
-    transforms.ToTensor(), 
-    transforms.Resize((160,160), antialias=True)
+    transforms.Resize((160,160), antialias=True),
+    transforms.ToTensor()
     ])
-test_transform = transforms.Compose([transforms.ToTensor(), transforms.Resize((160,160))])
+test_transform = transforms.Compose([transforms.Resize((160,160)), transforms.ToTensor()])
 
 # Train dataset
 train_dataset =  ImageWoof(
