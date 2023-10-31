@@ -1,0 +1,3 @@
+epochs 20
+batch-size 128
+l = 0.0001

@@ -17,7 +17,7 @@ def parsefile(log_text):
     print("Train Loss and Accuracy:", train_loss_and_acc)
     print("Validation Loss and Accuracy:", val_loss_and_acc)
 
-path = "../code/task1.1/"
+path = "../code/task1.1/L0.0001/"
 #open text file in read mode
 #text_file = open("../logs/1000_log.txt", "r")
 
@@ -27,7 +27,7 @@ input_string = text_file.read()
 
 adamW_t, adamW_v = parsefile(input_string)
 
-adamW_t = [x[0]/64 for x in adamW_t]
+adamW_t = [x[0] for x in adamW_t]
 adamW_v = [x[0] for x in adamW_v]
 epochs = [x for x in range(len(adamW_t))]
 
@@ -46,7 +46,7 @@ input_string = text_file.read()
 
 SGD_t, SGD_v = parsefile(input_string)
 
-SGD_t = [x[0]/64 for x in SGD_t]
+SGD_t = [x[0] for x in SGD_t]
 SGD_v = [x[0] for x in SGD_v]
 
 # Create a figure
