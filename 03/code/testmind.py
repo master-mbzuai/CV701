@@ -31,7 +31,10 @@ class ImageClassification(MicroMind):
 
 if __name__ == "__main__":
     hparams = parse_arguments()
-    hparams.output_folder = 'test_3'
+    hparams.output_folder = 'test_4'
+    hparams.opt = 'adam'
+    hparams.lr = 0.01
+
     m = ImageClassification(hparams)
 
     summary(m.modules["classifier"], input_size=(batch_size, 3, 160, 160))
@@ -79,12 +82,15 @@ if __name__ == "__main__":
     acc = Metric(name="accuracy", fn=compute_accuracy)
 
     m.train(
-        epochs=50,
+        epochs=30,
         datasets={"train": trainloader, "val": valloader},
         metrics=[acc],
         debug=hparams.debug,
     )
 
-    m.test(
+    res = m.test(
         datasets={"test": testloader},
     )
+
+    with open(hparams.output_folder + 'test_set_result.txt', 'w') as file:
+        file.write(res)
