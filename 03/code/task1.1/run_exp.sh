@@ -1,4 +1,3 @@
-
 # Define the lists
 lr=("0.001" "0.0001" "0.00001")
 opt=("adam" "adamW" "SGD")
