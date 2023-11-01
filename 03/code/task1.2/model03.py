@@ -6,34 +6,34 @@ class CNN(nn.Module):
         super().__init__()
 
         self.feature_extractor = nn.Sequential(
-            nn.Conv2d(3, 16, 7, 1),
+            nn.Conv2d(3, 16, 3, 1),
             nn.Sigmoid(),
-            nn.Conv2d(16, 32, 7, 1),
-            nn.ReLU(),
-            nn.MaxPool2d(2),
-            #####
-            nn.Conv2d(8, 16, 5, 1),
-            nn.ReLU(),
-            nn.Conv2d(16, 16, 5, 1),
-            nn.ReLU(),
-            nn.MaxPool2d(2),
-            #####
             nn.Conv2d(16, 32, 3, 1),
-            nn.ReLU(),
-            nn.Conv2d(32, 32, 3, 1),
-            nn.ReLU(),
+            nn.Sigmoid(),
+            nn.MaxPool2d(3),
+            #####
+            nn.Conv2d(32, 64, 3, 1),
+            nn.Sigmoid(),
+            nn.Conv2d(64, 64, 3, 1),
+            nn.Sigmoid(),
+            nn.MaxPool2d(2),
+            #####
+            nn.Conv2d(64, 128, 3, 1),
+            nn.Sigmoid(),
+            nn.Conv2d(128, 128, 3, 1),
+            nn.Sigmoid(),
             nn.AdaptiveAvgPool2d(
                 output_size=8,
             ),
+            nn.functional.Softmax()
+            nn.Flatten()
         )
         self.classifier = nn.Sequential(
-            nn.Linear(32 * 8 * 8, 1024),
+            nn.Linear(128, 256),
             nn.ReLU(),
-            nn.Linear(1024, 512),
+            nn.Linear(256, 64),
             nn.ReLU(),
-            nn.Linear(512, 128),
-            nn.ReLU(),
-            nn.Linear(128, num_classes),
+            nn.Linear(64, num_classes)
         )
 
     def forward(self, x):
