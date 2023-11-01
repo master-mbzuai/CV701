@@ -34,5 +34,6 @@ def parse_arguments():
         type=int
     )
 
+
     args = parser.parse_args()
     return args

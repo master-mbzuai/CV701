@@ -34,8 +34,9 @@ params = parse_arguments()
 
 lr=params.lr
 epochs=params.epochs
-path=params.output_folder + "_e" + str(params.epochs) + "_l" + str(params.lr) + "_" + str(params.opt)
 optimizer=params.opt
+batch_size = 64
+path=params.output_folder + "_e" + str(params.epochs) + "_l" + str(params.lr) + "_" + str(params.opt) + "_" + str(params.batch_size)
 device = 'cuda'
 
 Path(path).mkdir(exist_ok=True)
@@ -52,8 +53,6 @@ def START_seed():
     random.seed(seed)
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
-
-batch_size = 64
 
 transform = transforms.Compose(
         [transforms.ToTensor(), 
@@ -95,7 +94,7 @@ print("Valset size: ", len(val)//batch_size)
 print("Testset size: ", len(testset)//batch_size)
 
 ## Creating training loop
-def train(model):
+def train(model, epoch):
     model.train()
     train_loss = 0
     total = 0
@@ -121,7 +120,10 @@ def train(model):
             total += target.size(0)
             correct += predicted.eq(target).sum().item()
             tepoch.set_postfix(loss=train_loss/(batch_idx+1), lr=optimizer.param_groups[0]['lr'])
-        print(' train loss: {:.4f} accuracy: {:.4f}'.format(train_loss/(batch_idx+1), 100.*correct/total))
+        log = '{} train loss: {:.4f} accuracy: {:.4f}\n'.format(epoch, train_loss/(batch_idx+1), 100.*correct/total)
+        print(log)
+        with open(path + "/log.txt", 'a') as file:
+                file.write(log)
 
 best_accuracy = 0.0
 def validate(model):
@@ -146,8 +148,8 @@ def validate(model):
             print("Saving the best model...")
             best_accuracy = (100.*correct/total)
             torch.save(model.state_dict(), path + '/best_model_adam.pth')
-            log = ' val loss: {:.4f} accuracy: {:.4f} best_accuracy: {:.4f}'.format(test_loss/(batch_idx+1), 100.*correct/total, best_accuracy)
-            with open(path + "/log.txt", 'w+') as file:
+            log = ' val loss: {:.4f} accuracy: {:.4f} best_accuracy: {:.4f}\n'.format(test_loss/(batch_idx+1), 100.*correct/total, best_accuracy)
+            with open(path + "/log.txt", 'a') as file:
                 file.write(log)
 
         print(log)
@@ -175,7 +177,7 @@ if __name__ == "__main__":
 
     for epoch in range(0, epochs):
         print("epoch number: {0}".format(epoch))
-        train( model)
+        train(model, epoch)
         validate(model)
     end = time.time()
     Total_time=end-start
