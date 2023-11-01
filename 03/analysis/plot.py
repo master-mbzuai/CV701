@@ -24,7 +24,7 @@ def extract_metrics(input_string):
     return extracted_data
 
 
-path = "../code/task1.2/results_e20_l0.001_adam_model01/"
+path = "../code/task1.3/results_e20_l0.001_adam_model01_SiLU/"
 
 #open text file in read mode
 #text_file = open("../logs/1000_log.txt", "r")

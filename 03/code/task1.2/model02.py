@@ -33,7 +33,7 @@ class CNN(nn.Module):
             nn.SiLU(),
             nn.MaxPool2d(2),
             ####
-            nn.Conv2d(256, 384, 3, 1),
+            nn.Conv2d(256, 512, 3, 1),
             nn.SiLU(),
             nn.AdaptiveAvgPool2d(
                 output_size=1,
@@ -41,9 +41,9 @@ class CNN(nn.Module):
             nn.Flatten()
         )
         self.classifier = nn.Sequential(
-            nn.Linear(384, 192),            
+            nn.Linear(512, 256),            
             nn.ReLU(),
-            nn.Linear(192, 64),            
+            nn.Linear(256, 64),            
             nn.ReLU(),
             nn.Linear(64, num_classes),
         )

@@ -40,9 +40,10 @@ epochs=params.epochs
 optimizer=params.opt
 batch_size=params.batch_size
 device = 'cuda'
+activation=nn.SiLU()
 
 module_name=params.model_name
-path=params.output_folder + "_e" + str(params.epochs) + "_l" + str(params.lr) + "_" + str(params.opt) + "_" + str(module_name)
+path=params.output_folder + "_e" + str(params.epochs) + "_l" + str(params.lr) + "_" + str(params.opt) + "_" + str(module_name) + "_" + str(activation).split("(")[0]
 
 
 module = importlib.import_module(module_name)
@@ -197,7 +198,7 @@ if __name__ == "__main__":
     START_seed()
     #train_loader, val_loader, test_loader = load_dataset()
 
-    model = CNN(num_classes=10)
+    model = CNN(num_classes=10, activation=activation)
 
     best_model_path = path + '/best_model.pth'  # Replace with the actual path and filename of the best model
     #if there is a model load it 

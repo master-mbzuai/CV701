@@ -1,13 +1,8 @@
 import torch
 from torch import nn
 
-
 class CNN(nn.Module):
-    def __init__(self, num_classes=10):
-        super().__init__()
-
-class CNN(nn.Module):
-    def __init__(self, num_classes=10):
+    def __init__(self, num_classes=10, activation=nn.SiLU):
         super().__init__()
 
         self.feature_extractor = nn.Sequential(
