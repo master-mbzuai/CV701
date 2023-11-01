@@ -23,22 +23,22 @@ class CNN(nn.Module):
             nn.Conv2d(128, 128, 3, 1),
             nn.Sigmoid(),
             nn.AdaptiveAvgPool2d(
-                output_size=8,
-            ),
-            nn.functional.Softmax()
+                output_size=4,
+            ),            
             nn.Flatten()
         )
         self.classifier = nn.Sequential(
-            nn.Linear(128, 256),
+            nn.Linear(2048, 512),      
             nn.ReLU(),
-            nn.Linear(256, 64),
+            nn.Linear(512, 64),    
             nn.ReLU(),
             nn.Linear(64, num_classes)
         )
 
     def forward(self, x):
         features = self.feature_extractor(x)
-        features = torch.flatten(features, start_dim=1)
+        #features = nn.functional.softmax(features, dim=1),
+        #features = torch.flatten(features, start_dim=1)
         out = self.classifier(features)
         return out
 
