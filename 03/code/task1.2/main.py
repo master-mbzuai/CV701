@@ -31,8 +31,6 @@ from pathlib import Path
 
 import importlib
 
-
-
 params = parse_arguments()
 
 print(params)
@@ -136,11 +134,12 @@ def train(model, epoch):
         with open(path + "/log.txt", 'a') as file:
                 file.write(log)
 
-best_accuracy = 0.0
+
 def validate(model):
     global best_accuracy
     model.eval()
 
+    best_loss = 0
     test_loss = 0
     correct = 0
     total = 0
@@ -155,11 +154,11 @@ def validate(model):
             _, predicted = output.max(1)
             total += target.size(0)
             correct += predicted.eq(target).sum().item()
-        if (100.*correct/total) > best_accuracy:
+        if loss > best_loss:
             print("Saving the best model...")
-            best_accuracy = (100.*correct/total)
+            best_loss = loss
             torch.save(model.state_dict(), path + '/best_model.pth')
-        log = ' val loss: {:.4f} accuracy: {:.4f} best_accuracy: {:.4f}\n'.format(test_loss/(batch_idx+1), 100.*correct/total, best_accuracy)
+        log = ' val loss: {:.4f} accuracy: {:.4f} best_loss: {:.4f}\n'.format(test_loss/(batch_idx+1), 100.*correct/total, best_loss)
         print(log)
         with open(path + "/log.txt", 'a') as file:
             file.write(log)        
@@ -219,13 +218,13 @@ if __name__ == "__main__":
     model.to(device)
     start = time.time()
 
-    # for epoch in range(0, epochs):
-    #     print("epoch number: {0}".format(epoch))
-    #     train(model, epoch)
-    #     validate(model)
-    # end = time.time()
-    # Total_time=end-start
-    # print('Total training and inference time is: {0}'.format(Total_time))
+    for epoch in range(0, epochs):
+        print("epoch number: {0}".format(epoch))
+        train(model, epoch)
+        validate(model)
+    end = time.time()
+    Total_time=end-start
+    print('Total training and inference time is: {0}'.format(Total_time))
 
     # Usage example:
 
