@@ -1,0 +1,1 @@
+ val loss: 2.0436 accuracy: 26.2749 best_accuracy: 26.2749
