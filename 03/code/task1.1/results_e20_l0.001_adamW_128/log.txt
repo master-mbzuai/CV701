@@ -1,0 +1,41 @@
+0 train loss: 2.2099 accuracy: 15.4992
+ val loss: 2.1144 accuracy: 22.5055 best_accuracy: 0.0000
+1 train loss: 2.0770 accuracy: 21.3960
+ val loss: 2.0693 accuracy: 24.2794 best_accuracy: 22.5055
+2 train loss: 2.0415 accuracy: 23.1318
+ val loss: 2.0201 accuracy: 25.7206 best_accuracy: 24.2794
+3 train loss: 2.0149 accuracy: 25.2616
+ val loss: 2.0081 accuracy: 26.3858 best_accuracy: 25.7206
+4 train loss: 1.9681 accuracy: 26.3326
+ val loss: 1.9924 accuracy: 26.8293 best_accuracy: 26.3858
+5 train loss: 1.9228 accuracy: 28.6840
+ val loss: 1.9808 accuracy: 27.1619 best_accuracy: 26.8293
+6 train loss: 1.8530 accuracy: 31.1338
+ val loss: 1.8953 accuracy: 29.8226 best_accuracy: 27.1619
+7 train loss: 1.7758 accuracy: 34.9378
+ val loss: 1.8511 accuracy: 30.8204 best_accuracy: 29.8226
+8 train loss: 1.6865 accuracy: 39.2589
+ val loss: 1.8923 accuracy: 32.0399 best_accuracy: 30.8204
+9 train loss: 1.5810 accuracy: 42.9275
+ val loss: 1.9025 accuracy: 32.1508 best_accuracy: 32.0399
+10 train loss: 1.4379 accuracy: 48.7382
+ val loss: 1.9583 accuracy: 31.0421 best_accuracy: 32.1508
+11 train loss: 1.2701 accuracy: 54.2164
+ val loss: 2.1499 accuracy: 31.0421 best_accuracy: 32.1508
+12 train loss: 1.0665 accuracy: 62.5385
+ val loss: 2.2318 accuracy: 31.8182 best_accuracy: 32.1508
+13 train loss: 0.8293 accuracy: 71.1067
+ val loss: 2.6681 accuracy: 31.9290 best_accuracy: 32.1508
+14 train loss: 0.6253 accuracy: 78.1977
+ val loss: 3.3129 accuracy: 31.5965 best_accuracy: 32.1508
+15 train loss: 0.4682 accuracy: 83.9222
+ val loss: 3.7608 accuracy: 31.8182 best_accuracy: 32.1508
+16 train loss: 0.3459 accuracy: 88.1448
+ val loss: 3.7868 accuracy: 31.5965 best_accuracy: 32.1508
+17 train loss: 0.2367 accuracy: 92.0227
+ val loss: 5.2656 accuracy: 30.7095 best_accuracy: 32.1508
+18 train loss: 0.2422 accuracy: 91.9857
+ val loss: 5.0845 accuracy: 31.0421 best_accuracy: 32.1508
+19 train loss: 0.1761 accuracy: 94.2016
+ val loss: 5.0900 accuracy: 29.0466 best_accuracy: 32.1508
+Test loss: 1.8883 Accuracy: 33.32%

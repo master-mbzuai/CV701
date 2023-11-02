@@ -144,16 +144,42 @@ def validate(model):
             _, predicted = output.max(1)
             total += target.size(0)
             correct += predicted.eq(target).sum().item()
+        log = ' val loss: {:.4f} accuracy: {:.4f} best_accuracy: {:.4f}\n'.format(test_loss/(batch_idx+1), 100.*correct/total, best_accuracy)
+        print(log)
+        with open(path + "/log.txt", 'a') as file:
+                file.write(log)        
         if (100.*correct/total) > best_accuracy:
             print("Saving the best model...")
             best_accuracy = (100.*correct/total)
-            torch.save(model.state_dict(), path + '/best_model_adam.pth')
-            log = ' val loss: {:.4f} accuracy: {:.4f} best_accuracy: {:.4f}\n'.format(test_loss/(batch_idx+1), 100.*correct/total, best_accuracy)
-            with open(path + "/log.txt", 'a') as file:
-                file.write(log)
+            torch.save(model.state_dict(), path + '/best_model_adam.pth')                        
 
+
+def test_best_model(model, test_loader, criterion, best_model_path):
+    # Load the best model
+    model.load_state_dict(torch.load(best_model_path))
+    model.eval()
+
+    test_loss = 0
+    correct = 0
+    total = 0
+
+    with tqdm(test_loader, unit="batch") as tepoch:
+        for batch_idx, (data, target) in enumerate(tepoch):
+            data, target = data.to(device), target.to(device)
+
+            output = model(data)
+            loss = criterion(output, target)
+            test_loss += loss.item()
+
+            _, predicted = output.max(1)
+            total += target.size(0)
+            correct += predicted.eq(target).sum().item()
+
+        accuracy = 100. * correct / total        
+        log = 'Test loss: {:.4f} Accuracy: {:.2f}%'.format(test_loss/(batch_idx+1), accuracy)
         print(log)
-
+        with open(path + "/log.txt", 'a') as file:
+            file.write(log)     
 
 if __name__ == "__main__":
 
@@ -175,10 +201,14 @@ if __name__ == "__main__":
     model.to(device)
     start = time.time()
 
-    for epoch in range(0, epochs):
-        print("epoch number: {0}".format(epoch))
-        train(model, epoch)
-        validate(model)
+    # for epoch in range(0, epochs):
+    #     print("epoch number: {0}".format(epoch))
+    #     train(model, epoch)
+    #     validate(model)
+
+    best_model_path = path + '/best_model_adam.pth'  # Replace with the actual path and filename of the best model
+    test_best_model(model, test_loader, nn.CrossEntropyLoss(), best_model_path)
+
     end = time.time()
     Total_time=end-start
     print('Total training and inference time is: {0}'.format(Total_time))
