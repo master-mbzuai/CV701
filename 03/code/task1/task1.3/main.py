@@ -23,17 +23,36 @@ from tqdm import tqdm
 from tqdm import trange
 
 from dataset import ImageWoof
-from model import CNN
-
+from parser import parse_arguments
 from matplotlib import pyplot as plt
 
 from torchinfo import summary
+from pathlib import Path
 
-lr = 0.001 
-epochs=20
+import importlib
+
+params = parse_arguments()
+
+print(params)
+
+lr=params.lr
+epochs=params.epochs
+optimizer=params.opt
+batch_size=params.batch_size
 device = 'cuda'
-train_batch_size = 128
-test_batch_size = 128
+activation=nn.SiLU()
+
+module_name=params.model_name
+path=params.output_folder + "_e" + str(params.epochs) + "_l" + str(params.lr) + "_" + str(params.opt) + "_" + str(module_name) + "_" + str(activation).split("(")[0]
+
+
+module = importlib.import_module(module_name)
+CNN = getattr(module, "CNN")
+
+Path(path).mkdir(exist_ok=True)
+
+with open(path + "/" + "meta.txt", "w+") as file:
+    file.write(str(params))
 
 def START_seed():
     seed = 9
@@ -44,8 +63,6 @@ def START_seed():
     random.seed(seed)
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
-
-batch_size = 64
 
 transform = transforms.Compose(
         [transforms.ToTensor(), 
@@ -87,7 +104,7 @@ print("Valset size: ", len(val)//batch_size)
 print("Testset size: ", len(testset)//batch_size)
 
 ## Creating training loop
-def train(model):
+def train(model, epoch):
     model.train()
     train_loss = 0
     total = 0
@@ -113,13 +130,17 @@ def train(model):
             total += target.size(0)
             correct += predicted.eq(target).sum().item()
             tepoch.set_postfix(loss=train_loss/(batch_idx+1), lr=optimizer.param_groups[0]['lr'])
-        print(' train loss: {:.4f} accuracy: {:.4f}'.format(train_loss/(batch_idx+1), 100.*correct/total))
+        log = 'Epoch: {} - train loss: {:.4f} accuracy: {:.4f}\n'.format(epoch, train_loss/(batch_idx+1), 100.*correct/total)
+        print(log)
+        with open(path + "/log.txt", 'a') as file:
+                file.write(log)
 
-best_accuracy = 0.0
+
 def validate(model):
     global best_accuracy
     model.eval()
 
+    best_loss = 0
     test_loss = 0
     correct = 0
     total = 0
@@ -134,11 +155,42 @@ def validate(model):
             _, predicted = output.max(1)
             total += target.size(0)
             correct += predicted.eq(target).sum().item()
-        if (100.*correct/total) > best_accuracy:
+        if loss > best_loss:
             print("Saving the best model...")
-            best_accuracy = (100.*correct/total)
-            torch.save(model.state_dict(), 'best_model_adam.pth')
-        print(' val loss: {:.4f} accuracy: {:.4f} best_accuracy: {:.4f}'.format(test_loss/(batch_idx+1), 100.*correct/total, best_accuracy))
+            best_loss = loss
+            torch.save(model.state_dict(), path + '/best_model.pth')
+        log = ' val loss: {:.4f} accuracy: {:.4f} best_loss: {:.4f}\n'.format(test_loss/(batch_idx+1), 100.*correct/total, best_loss)
+        print(log)
+        with open(path + "/log.txt", 'a') as file:
+            file.write(log)        
+
+def test_best_model(model, test_loader, criterion, best_model_path):
+    # Load the best model
+    model.load_state_dict(torch.load(best_model_path))
+    model.eval()
+
+    test_loss = 0
+    correct = 0
+    total = 0
+
+    with tqdm(test_loader, unit="batch") as tepoch:
+        for batch_idx, (data, target) in enumerate(tepoch):
+            data, target = data.to(device), target.to(device)
+
+            output = model(data)
+            loss = criterion(output, target)
+            test_loss += loss.item()
+
+            _, predicted = output.max(1)
+            total += target.size(0)
+            correct += predicted.eq(target).sum().item()
+
+        accuracy = 100. * correct / total        
+        log = 'Test loss: {:.4f} Accuracy: {:.2f}%'.format(test_loss/(batch_idx+1), accuracy)
+        print(log)
+        with open(path + "/log.txt", 'a') as file:
+            file.write(log)     
+
 
 
 if __name__ == "__main__":
@@ -146,20 +198,37 @@ if __name__ == "__main__":
     START_seed()
     #train_loader, val_loader, test_loader = load_dataset()
 
-    model = CNN(num_classes=10)
+    model = CNN(num_classes=10, activation=activation)
+
+    best_model_path = path + '/best_model.pth'  # Replace with the actual path and filename of the best model
+    #if there is a model load it 
+    if(os.path.exists(best_model_path)):
+        model.load_state_dict(torch.load(best_model_path))
+
     pytorch_total_params = sum(p.numel() for p in  model.parameters())
     print('Number of parameters: {0}'.format(pytorch_total_params))
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=0.0001)
+    if(params.opt == "adam"):            
+        optimizer = optim.Adam(model.parameters(), lr=params.lr)
+    elif(params.opt == "adamW"):
+        optimizer = optim.AdamW(model.parameters(), lr=params.lr)
+    else:
+        optimizer = optim.SGD(model.parameters(), lr=params.lr)
 
     model.to(device)
     start = time.time()
 
     for epoch in range(0, epochs):
         print("epoch number: {0}".format(epoch))
-        train( model)
+        train(model, epoch)
         validate(model)
     end = time.time()
     Total_time=end-start
     print('Total training and inference time is: {0}'.format(Total_time))
+
+    # Usage example:
+    # Assuming you have a model, test_loader, and best_model_path defined
+    best_model_path = path + '/best_model.pth'  # Replace with the actual path and filename of the best model
+
+    test_best_model(model, test_loader, nn.CrossEntropyLoss(), best_model_path)

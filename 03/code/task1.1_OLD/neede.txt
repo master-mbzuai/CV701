@@ -1,3 +1,0 @@
-test accuracy 
-test loss
-combination of parameters
