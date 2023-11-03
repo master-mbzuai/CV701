@@ -230,5 +230,4 @@ if __name__ == "__main__":
     # Usage example:
     # Assuming you have a model, test_loader, and best_model_path defined
     best_model_path = path + '/best_model.pth'  # Replace with the actual path and filename of the best model
-
     test_best_model(model, test_loader, nn.CrossEntropyLoss(), best_model_path)
