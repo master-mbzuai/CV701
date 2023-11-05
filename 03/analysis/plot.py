@@ -1,9 +1,12 @@
 import re
+import os
 from matplotlib import pyplot as plt
 
 def extract_metrics(input_string):
     #"Epoch: 0 - train loss: 2.2142 accuracy: 15.5854"
-    pattern = r"Epoch: (\d+) - train loss: (\d+\.\d+) accuracy: (\d+\.\d+)\n val loss: (\d+\.\d+) accuracy: (\d+\.\d+)"
+    #  val loss: 5.3027 accuracy: 29.3792 best_accuracy: 30.9313
+    # 5 train loss: 2.1032 accuracy: 22.6025
+    pattern = r"(\d+) train loss: (\d+\.\d+) accuracy: (\d+\.\d+)\n val loss: (\d+\.\d+) accuracy: (\d+\.\d+)"
     matches = re.findall(pattern, input_string)
 
     extracted_data = {
@@ -23,29 +26,36 @@ def extract_metrics(input_string):
 
     return extracted_data
 
+def plot_folder(path):    
 
-path = "../code/task1.3/results_e20_l0.001_adam_model01_SiLU/"
+    #open text file in read mode
+    #text_file = open("../logs/1000_log.txt", "r")
+    text_file = open(path + "/log.txt", "r")
+    #text_file = open("../results/adaptive_exp_0/90/exp/train_log.txt", "r")
 
-#open text file in read mode
-#text_file = open("../logs/1000_log.txt", "r")
-text_file = open(path + "log.txt", "r")
-#text_file = open("../results/adaptive_exp_0/90/exp/train_log.txt", "r")
+    # Your input string
+    #read whole file to a string
+    input_string = text_file.read()
 
-# Your input string
-#read whole file to a string
-input_string = text_file.read()
+    # Extract metrics
+    extracted_data = extract_metrics(input_string)
+    print(extracted_data)
 
-# Extract metrics
-extracted_data = extract_metrics(input_string)
-print(extracted_data)
+    # Create the scatter plot
+    plt.plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
+    plt.plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
 
-# Create the scatter plot
-plt.plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
-plt.plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
+    plt.title('Train loss (blue) VS Validation loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.grid(True)
+    plt.savefig(path + 'trainloss.jpg')
+    plt.show()
 
-plt.title('Train loss (blue) VS Validation loss')
-plt.xlabel('Epoch')
-plt.ylabel('Loss')
-plt.grid(True)
-plt.savefig(path + 'trainloss.jpg')
-plt.show()
+if __name__ == "__main__":
+    path = "../code/task1/task1.3/"
+    for x in os.listdir(path):
+        if("results" in x):
+            full_path = path + x
+            print(full_path)
+            plot_folder(full_path)

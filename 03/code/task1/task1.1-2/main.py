@@ -62,10 +62,10 @@ transform = transforms.Compose(
     )
 
 trainset = ImageWoof(
-    root="../", train=True, transform=transform, img_size=160
+    root="../../", train=True, transform=transform, img_size=160
 )
 testset = ImageWoof(
-    root="../", train=False, transform=transform, img_size=160
+    root="../../", train=False, transform=transform, img_size=160
 )
 
 ## split into train, val, test 
@@ -201,10 +201,10 @@ if __name__ == "__main__":
     model.to(device)
     start = time.time()
 
-    # for epoch in range(0, epochs):
-    #     print("epoch number: {0}".format(epoch))
-    #     train(model, epoch)
-    #     validate(model)
+    for epoch in range(0, epochs):
+        print("epoch number: {0}".format(epoch))
+        train(model, epoch)
+        validate(model)
 
     best_model_path = path + '/best_model_adam.pth'  # Replace with the actual path and filename of the best model
     test_best_model(model, test_loader, nn.CrossEntropyLoss(), best_model_path)

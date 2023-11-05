@@ -7,29 +7,29 @@ class CNN(nn.Module):
 
         self.feature_extractor = nn.Sequential(
             nn.Conv2d(3, 32, 3, 1),
-            nn.SiLU(),  
+            nn.ReLU(),  
             nn.MaxPool2d(2),
             #####
             nn.Conv2d(32, 64, 3, 1),
-            nn.SiLU(),
+            nn.ReLU(),
             nn.Conv2d(64, 64, 3, 1),
-            nn.SiLU(),
+            nn.ReLU(),
             nn.MaxPool2d(2),
             #####
             nn.Conv2d(64, 128, 3, 1),
-            nn.SiLU(),
+            nn.ReLU(),
             nn.Conv2d(128, 128, 3, 1),
-            nn.SiLU(),
+            nn.ReLU(),
             nn.MaxPool2d(2),
             ####
             nn.Conv2d(128, 256, 3, 1),
-            nn.SiLU(),
+            nn.ReLU(),
             nn.Conv2d(256, 256, 3, 1),
-            nn.SiLU(),
+            nn.ReLU(),
             nn.MaxPool2d(2),
             ####
             nn.Conv2d(256, 384, 3, 1),
-            nn.SiLU(),
+            nn.ReLU(),
             nn.AdaptiveAvgPool2d(
                 output_size=1,
             ),
