@@ -1,0 +1,3 @@
+Epoch: 0 - train loss: 2.0346 accuracy: 23.0826
+ val loss: 1.9410 accuracy: 26.4967 best_loss: 2.0232
+Test loss: 1.9295 Accuracy: 27.36%
