@@ -1,0 +1,41 @@
+0 train loss: 2.3048 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 0.0000
+1 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+2 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+3 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+4 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+5 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+6 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+7 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+8 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+9 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+10 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+11 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+12 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+13 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+14 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+15 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+16 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+17 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+18 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+19 train loss: 2.3047 accuracy: 10.2302
+ val loss: 2.3039 accuracy: 9.9778 best_accuracy: 9.9778
+Test loss: 2.3038 Accuracy: 10.92%

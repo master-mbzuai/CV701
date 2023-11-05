@@ -1,6 +1,6 @@
 # Define the lists
 lr=("0.001" "0.0001" "0.00001")
-opt=("adam" "adamW" "SGD")
+opt=("sgd")
 batch_size=("64" "128")
 
 # Iterate through all combinations
