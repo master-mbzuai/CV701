@@ -65,6 +65,6 @@ if __name__ == "__main__":
     #         full_path = path + x
     #         print(full_path)
     #         plot_folder(full_path)
-    x = "results_e50_l0.001_adam_model06_ReLU"
+    x = "results_e100_l0.001_adam_model06_ReLU"
     full_path = path + x
     plot_folder(full_path)

@@ -36,12 +36,12 @@ class CNN(nn.Module):
             ####
             nn.Conv2d(256, 384, 3, 1),
             nn.BatchNorm2d(384),
-            nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.ReLU(),            
             nn.AdaptiveAvgPool2d(
                 output_size=1,
             ),
-            nn.Flatten()
+            nn.Flatten(),
+            nn.Dropout(0.2),
         )
         self.classifier = nn.Sequential(
             nn.Linear(384, 192),            

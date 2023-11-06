@@ -72,7 +72,7 @@ def START_seed():
 
 transform = transforms.Compose(
         [transforms.ToTensor(), 
-        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+        #transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
         transforms.Resize((160, 160), antialias=True),
         #v2.RandomResizedCrop(160, antialias=True)
         ]
@@ -127,6 +127,11 @@ def train(model, epoch):
         for batch_idx, (data, target) in enumerate(tepoch):
             # send to device
             data, target = data.to(device), target.to(device)
+
+            # test = data[:4].to('cpu')
+            # images = torch.concatenate([x for x in test], dim=2)
+            # plt.imshow(torch.permute(images, (1,2,0)))
+            # plt.waitforbuttonpress()
     
             # clear the gradients of all optimized variables
             optimizer.zero_grad()
