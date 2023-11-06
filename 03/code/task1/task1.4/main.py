@@ -40,7 +40,7 @@ epochs=params.epochs
 optimizer=params.opt
 batch_size=params.batch_size
 device = 'cuda'
-activation=nn.SiLU()
+activation=nn.ReLU()
 
 module_name=params.model_name
 path=params.output_folder + "_e" + str(params.epochs) + "_l" + str(params.lr) + "_" + str(params.opt) + "_" + str(module_name) + "_" + str(activation).split("(")[0]
@@ -72,10 +72,10 @@ transform = transforms.Compose(
     )
 
 trainset = ImageWoof(
-    root="../", train=True, transform=transform, img_size=160
+    root="../../", train=True, transform=transform, img_size=160
 )
 testset = ImageWoof(
-    root="../", train=False, transform=transform, img_size=160
+    root="../../", train=False, transform=transform, img_size=160
 )
 
 ## split into train, val, test 

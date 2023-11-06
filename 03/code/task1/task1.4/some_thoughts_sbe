@@ -12,3 +12,5 @@ adding the dropout
 -> I also try with 0.2 not even good, that is because there are so many dropouts! Maybe not learning much model03
 -> I left them only at the very last layer model04
 -> Test loss: 2.0502 Accuracy: 64.90% model04 best -> dropout 0.2 only lasst layerss
+
+--> check back with Relu model06 Test loss: 2.0356 Accuracy: 65.18%
