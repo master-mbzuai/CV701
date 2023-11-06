@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2023.9.26)  5 NOV 2023 09:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2023.9.26)  6 NOV 2023 09:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -317,18 +317,8 @@ File: input_1.png Graphic file (type png)
 Package pdftex.def Info: input_1.png  used on input line 385.
 (pdftex.def)             Requested size: 113.81358pt x 113.81358pt.
 
-Overfull \hbox (16.9445pt too wide) in paragraph at lines 520--520
- [][][]\OT1/cmr/bx/n/10 Conv9[] 
- []
-
-
-Overfull \hbox (22.69447pt too wide) in paragraph at lines 536--536
- [][][]\OT1/cmr/bx/n/10 Conv10[] 
- []
-
-
-Overfull \hbox (22.69447pt too wide) in paragraph at lines 565--565
- [][][]\OT1/cmr/bx/n/10 Conv12[] 
+Overfull \hbox (0.92502pt too wide) in paragraph at lines 565--565
+ [][]\OT1/cmr/m/n/9 4 
  []
 
 
@@ -342,7 +332,7 @@ Overfull \hbox (28.59721pt too wide) in paragraph at lines 608--608
  []
 
 
-Overfull \hbox (6.44998pt too wide) in paragraph at lines 622--622
+Overfull \hbox (5.75742pt too wide) in paragraph at lines 622--622
  [][]\OT1/cmr/m/n/9 10 
  []
 
@@ -360,15 +350,15 @@ L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 18380 strings out of 477182
- 454013 string characters out of 5806675
+ 18407 strings out of 477182
+ 454562 string characters out of 5806675
  2089791 words of memory out of 5000000
- 39448 multiletter control sequences out of 15000+600000
+ 39475 multiletter control sequences out of 15000+600000
  558676 words of font info for 38 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  117i,11n,121p,487b,1251s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/sebastiancavada/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/sebastiancavada/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/sebastiancavada/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on out.pdf (1 page, 64914 bytes).
+Output written on out.pdf (1 page, 69367 bytes).
 PDF statistics:
  25 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

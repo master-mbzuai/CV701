@@ -41,7 +41,7 @@ lr=params.lr
 epochs=params.epochs
 optimizer=params.opt
 batch_size=params.batch_size
-device = 'cpu'
+device = 'mps'
 activation=nn.SiLU()
 
 module_name=params.model_name
@@ -202,7 +202,12 @@ if __name__ == "__main__":
 
     model = CNN(num_classes=10, activation=activation)
 
-    arch = Architecture(model)
+    arch = Architecture(model, block_offset=3,
+            height_depth_factor=0.2,
+            width_factor=0.2,
+            linear_factor=0.1,
+            image_path='./input_{i}.png',
+            ignore_layers=['batchnorm', 'flatten'])
 
     best_model_path = path + '/best_model.pth'  # Replace with the actual path and filename of the best model
     #if there is a model load it 
@@ -225,7 +230,7 @@ if __name__ == "__main__":
 
     for epoch in range(0, epochs):
         print("epoch number: {0}".format(epoch))
-        train(model, epoch)
+        # train(model, epoch)
         validate(model)
     end = time.time()
     Total_time=end-start
@@ -238,6 +243,6 @@ if __name__ == "__main__":
 
     # Assuming you have a model, test_loader, and best_model_path defined
 
-    best_model_path = path + '/best_model.pth'  # Replace with the actual path and filename of the best model
+    # best_model_path = path + '/best_model.pth'  # Replace with the actual path and filename of the best model
 
-    test_best_model(model, test_loader, nn.CrossEntropyLoss(), best_model_path)
+    # test_best_model(model, test_loader, nn.CrossEntropyLoss(), best_model_path)

@@ -1,3 +1,8 @@
 Epoch: 0 - train loss: 2.0346 accuracy: 23.0826
  val loss: 1.9410 accuracy: 26.4967 best_loss: 2.0232
-Test loss: 1.9295 Accuracy: 27.36%
+Test loss: 1.9295 Accuracy: 27.36% val loss: 1.9422 accuracy: 26.2749 best_loss: 2.0245
+ val loss: 1.8841 accuracy: 27.4945 best_loss: 1.7372
+ val loss: 1.9060 accuracy: 26.0532 best_loss: 1.5258
+ val loss: 1.9479 accuracy: 27.3836 best_loss: 2.4854
+ val loss: 1.9705 accuracy: 27.2727 best_loss: 2.2608
+ val loss: 1.8910 accuracy: 28.3814 best_loss: 1.2538

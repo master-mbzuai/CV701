@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1699162554 "/Users/sebastiancavada/Documents/scsv/semester-1/cv/cv_assignments/03/code/test/out.tex" "out.pdf" "out" 1699162563 0
-  "/Users/sebastiancavada/Documents/scsv/semester-1/cv/cv_assignments/03/code/test/out.tex" 1699162528 23511 67b24efa0f57335aea1568abef5df580 ""
+["pdflatex"] 1699249260 "/Users/sebastiancavada/Documents/scsv/semester-1/cv/cv_assignments/03/code/test/out.tex" "out.pdf" "out" 1699249261 0
+  "/Users/sebastiancavada/Documents/scsv/semester-1/cv/cv_assignments/03/code/test/out.tex" 1699249259 23506 3afaa45c74bbfea7025d9a244e8ab644 ""
   "/Users/sebastiancavada/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map" 1699162560 109656 e44efc0cf572bd398ff1678d24995da4 ""
   "/Users/sebastiancavada/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1695733012 20965795 898ea371f8aa78e1d52d39a474566768 ""
   "/Users/sebastiancavada/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/public/cm/cmbx10.tfm" 1695732922 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -101,9 +101,9 @@
   "/Users/sebastiancavada/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tools/shellesc.sty" 1695732928 4121 54904b35568f3b7e15748a2fa1ae9cb4 ""
   "/Users/sebastiancavada/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xcolor/xcolor.sty" 1695836042 56148 51a9a8571c07b9921892ae11063ae853 ""
   "/Users/sebastiancavada/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xkeyval/xkeyval.sty" 1696686964 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "input_1.png" 1699162056 23513 5d8f0a3ac386b5b0b9350131a33832bc ""
-  "out.aux" 1699162562 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "out.tex" 1699162528 23511 67b24efa0f57335aea1568abef5df580 ""
+  "input_1.png" 1699249250 27896 483e0afe766b40f2018782b2f5c9b873 ""
+  "out.aux" 1699249261 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "out.tex" 1699249259 23506 3afaa45c74bbfea7025d9a244e8ab644 ""
   (generated)
   "out.aux"
   "out.log"
