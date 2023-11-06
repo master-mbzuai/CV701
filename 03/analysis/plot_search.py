@@ -78,6 +78,7 @@ if __name__ == "__main__":
                         axs1[0,0].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[0,0].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs1[0,0].set_title('lr:0.001 - optim: SGD - ' + extracted_data["test_accuracy"][0] + "%")
+                        #axs1[0,0].set_
                     elif("0.0001" in full_path):                        
                         axs1[0,1].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[0,1].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')

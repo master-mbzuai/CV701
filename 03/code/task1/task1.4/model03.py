@@ -2,49 +2,46 @@ import torch
 from torch import nn
 
 class CNN(nn.Module):
-    def __init__(self, num_classes=10, activation=nn.SiLU):
+    def __init__(self, num_classes=10, activation=nn.ReLU):
         super().__init__()
 
         self.feature_extractor = nn.Sequential(
             nn.Conv2d(3, 32, 3, 1),
-            nn.SiLU(),
-            nn.Dropout(0.2),
+            nn.ReLU(),            
             nn.MaxPool2d(2),
+            nn.Dropout(0.5),
             #####
             nn.Conv2d(32, 64, 3, 1),
             nn.BatchNorm2d(64),
-            nn.SiLU(),
-            nn.Dropout(0.2),
+            nn.ReLU(),            
             nn.Conv2d(64, 64, 3, 1),
             nn.BatchNorm2d(64),
-            nn.SiLU(),
-            nn.Dropout(0.2),
+            nn.ReLU(),            
             nn.MaxPool2d(2),            
+            nn.Dropout(0.5),
             #####
             nn.Conv2d(64, 128, 3, 1),
             nn.BatchNorm2d(128),
-            nn.SiLU(),
-            nn.Dropout(0.2),
+            nn.ReLU(),            
             nn.Conv2d(128, 128, 3, 1),
             nn.BatchNorm2d(128),
-            nn.SiLU(),
-            nn.Dropout(0.2),
+            nn.ReLU(),            
             nn.MaxPool2d(2),
+            nn.Dropout(0.5),
             ####
             nn.Conv2d(128, 256, 3, 1),
             nn.BatchNorm2d(256),
-            nn.SiLU(),
-            nn.Dropout(0.2),
+            nn.ReLU(),
             nn.Conv2d(256, 256, 3, 1),
             nn.BatchNorm2d(256),
-            nn.SiLU(),
-            nn.Dropout(0.2),
+            nn.ReLU(),            
             nn.MaxPool2d(2),
+            nn.Dropout(0.5),
             ####
             nn.Conv2d(256, 384, 3, 1),
             nn.BatchNorm2d(384),
-            nn.SiLU(),
-            nn.Dropout(0.2),
+            nn.ReLU(),
+            nn.Dropout(0.5),
             nn.AdaptiveAvgPool2d(
                 output_size=1,
             ),
@@ -53,10 +50,10 @@ class CNN(nn.Module):
         self.classifier = nn.Sequential(
             nn.Linear(384, 192),            
             nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.5),
             nn.Linear(192, 64),            
             nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.5),
             nn.Linear(64, num_classes),
         )
         

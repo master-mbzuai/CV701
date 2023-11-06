@@ -231,12 +231,13 @@ if __name__ == "__main__":
         validate(model)
     end = time.time()
     Total_time=end-start
-    print('Total training and inference time is: {0}'.format(Total_time))
+    train_time = 'Total training and inference time is: {0}'.format(Total_time)
+    print(train_time)
+
+    with open(path + "/log.txt", 'a') as file:
+        file.write(train_time)     
 
     # Usage example:
-
     # Assuming you have a model, test_loader, and best_model_path defined
-
     best_model_path = path + '/best_model.pth'  # Replace with the actual path and filename of the best model
-
     test_best_model(model, test_loader, nn.CrossEntropyLoss(), best_model_path)
