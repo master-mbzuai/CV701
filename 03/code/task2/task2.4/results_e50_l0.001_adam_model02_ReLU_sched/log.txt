@@ -1,6 +1,0 @@
-Epoch: 0 - train loss: 2.2609 accuracy: 1.0464
- val loss: 2.3688 accuracy: 8.9800 best_loss: 2.3688 best_accuracy: 8.9800
-Epoch: 0 - train loss: 2.2112 accuracy: 0.6402
- val loss: 2.3145 accuracy: 10.6430 best_loss: 2.3145 best_accuracy: 10.6430
-Epoch: 0 - train loss: 2.1867 accuracy: 1.4034
- val loss: 2.0639 accuracy: 19.7339 best_loss: 2.0639 best_accuracy: 19.7339
