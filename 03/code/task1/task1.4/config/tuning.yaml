@@ -1,0 +1,14 @@
+name: model_05
+entity: evhenia-k-you
+program: main.py
+method: bayes
+metric:
+  goal: maximize
+  name: test/accuracy
+parameters:
+  model:
+    value: model05
+  epochs:
+    values: [25, 38, 50]
+  batch_size:
+    values: [32, 45, 64]
