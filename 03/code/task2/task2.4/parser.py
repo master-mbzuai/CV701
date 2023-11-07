@@ -9,7 +9,7 @@ def parse_arguments():
         "--optimizer",
         dest="opt",
         default="adam",
-        choices=["adam", "sgd", "adamW"],
+        choices=["adam", "sgd", "adamW", "nadam"],
         help="Optimizer name.",
     )
     parser.add_argument(

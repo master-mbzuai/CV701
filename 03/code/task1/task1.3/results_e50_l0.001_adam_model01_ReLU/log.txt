@@ -98,4 +98,4 @@ Epoch: 48 - train loss: 0.0047 accuracy: 99.8769
  val loss: 5.3560 accuracy: 47.8936 best_loss: 1.6955
 Epoch: 49 - train loss: 0.0988 accuracy: 97.1808
  val loss: 3.5755 accuracy: 43.6807 best_loss: 1.9717
-Test loss: 3.4887 Accuracy: 46.02%
+Test loss: 3.4887 Accuracy: 46.02
