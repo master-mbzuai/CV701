@@ -56,9 +56,14 @@ def plot_folder(path):
 if __name__ == "__main__":
     path = "../code/task1/task1.1-2/"    
     fig1, axs1  = plt.subplots(3,3, figsize=(18,12))
-    fig1.suptitle("20 Epochs - Batch-size 64")        
+    fig1.suptitle("20 Epochs - Batch-size 64")      
+    fig1.text(0.5, 0.04, 'Number of Epochs', ha='center')
+    fig1.text(0.04, 0.5, 'Loss', va='center', rotation='vertical')
+  
     fig2, axs2  = plt.subplots(3,3, figsize=(18,12))
     fig2.suptitle("20 Epochs - Batch-size 128")
+    fig2.text(0.5, 0.04, 'Number of Epochs', ha='center')
+    fig2.text(0.04, 0.5, 'Loss', va='center', rotation='vertical')
 
     for x in os.listdir(path):
         if("results" in x):
@@ -77,84 +82,103 @@ if __name__ == "__main__":
                     if("0.001" in full_path):
                         axs1[0,0].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[0,0].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
-                        axs1[0,0].set_title('lr:0.001 - optim: SGD - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs1[0,0].set_title('lr:0.001 - optim: SGD - ' + extracted_data["test_accuracy"][0] + "%")  
+                        axs1[0,0].legend(['Train loss', 'Val loss'])                        
                         #axs1[0,0].set_
                     elif("0.0001" in full_path):                        
                         axs1[0,1].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[0,1].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs1[0,1].set_title('lr:0.0001 - optim: SGD - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs1[0,1].legend(['Train loss', 'Val loss'])
                     else:
                         axs1[0,2].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[0,2].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs1[0,2].set_title('lr:1e-05 - optim: SGD - ' + extracted_data["test_accuracy"][0] + "%")
+
+                        axs1[0,2].legend(['Train loss', 'Val loss'])
                 elif("adamW" in full_path):
                     if("0.001" in full_path):
                         axs1[2,0].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[2,0].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs1[2,0].set_title('lr:0.001 - optim: adamW - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs1[2,0].legend(['Train loss', 'Val loss'])
                     elif("0.0001" in full_path):                        
                         axs1[2,1].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[2,1].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs1[2,1].set_title('lr:0.0001 - optim: adamW - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs1[2,1].legend(['Train loss', 'Val loss'])
                     else:
                         axs1[2,2].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[2,2].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')                    
                         axs1[2,2].set_title('lr:1e-05 - optim: adamW - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs1[2,2].legend(['Train loss', 'Val loss'])
                 else:
                     if("0.001" in full_path):
                         axs1[1,0].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[1,0].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs1[1,0].set_title('lr:0.001 - optim: adam - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs1[1,0].legend(['Train loss', 'Val loss'])
                     elif("0.0001" in full_path):                        
                         axs1[1,1].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[1,1].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs1[1,1].set_title('lr:0.0001 - optim: adam - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs1[1,1].legend(['Train loss', 'Val loss'])
                     else:
                         axs1[1,2].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs1[1,2].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs1[1,2].set_title('lr:1e-05 - optim: adam - ' + extracted_data["test_accuracy"][0] + "%")
-                    
+                        axs1[1,2].legend(['Train loss', 'Val loss'])                
             else:
                 if("sgd" in full_path):
                     if("0.001" in full_path):
                         axs2[0,0].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs2[0,0].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs2[0,0].set_title('lr:0.001 - optim: SGD - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs2[0,0].legend(['Train loss', 'Val loss'])
                     elif("0.0001" in full_path):                        
                         axs2[0,1].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs2[0,1].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs2[0,1].set_title('lr:0.0001 - optim: SGD - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs2[0,1].legend(['Train loss', 'Val loss'])
                     else:
                         axs2[0,2].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs2[0,2].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs2[0,2].set_title('lr:1e-05 - optim: SGD - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs2[0,2].legend(['Train loss', 'Val loss'])
                 elif("adamW" in full_path):
                     if("0.001" in full_path):
                         axs2[2,0].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs2[2,0].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs2[2,0].set_title('lr:0.001 - optim: adamW - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs2[2,0].legend(['Train loss', 'Val loss'])
                     elif("0.0001" in full_path):                        
                         axs2[2,1].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs2[2,1].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs2[2,1].set_title('lr:0.0001 - optim: adamW - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs2[2,1].legend(['Train loss', 'Val loss'])
                     else:
                         axs2[2,2].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs2[2,2].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs2[2,2].set_title('lr:1e-05 - optim: adamW - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs2[2,2].legend(['Train loss', 'Val loss'])
+
                 else:
                     if("0.001" in full_path):
                         axs2[1,0].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs2[1,0].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs2[1,0].set_title('lr:0.001 - optim: adam - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs2[1,0].legend(['Train loss', 'Val loss'])
+
                     elif("0.0001" in full_path):                        
                         axs2[1,1].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs2[1,1].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
                         axs2[1,1].set_title('lr:0.0001 - optim: adam - ' + extracted_data["test_accuracy"][0] + "%")
+                        axs2[1,1].legend(['Train loss', 'Val loss'])
                     else:
                         axs2[1,2].plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
                         axs2[1,2].plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')           
                         axs2[1,2].set_title('lr:1e-05 - optim: adam - ' + extracted_data["test_accuracy"][0] + "%")
-
-    plt.show()
+                        axs2[1,2].legend(['Train loss', 'Val loss'])
+    plt.show()    
     fig1.savefig("./search_64.jpg")
     fig2.savefig("./search_128.jpg")

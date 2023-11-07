@@ -48,23 +48,24 @@ def plot_folder(path):
     print(extracted_data)
 
     # Create the scatter plot
-    plt.plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Parameters')
-    plt.plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Parameters')
+    plt.plot(extracted_data["epoch"], extracted_data["train_loss"], alpha=0.7, c='blue', label='Train loss')
+    plt.plot(extracted_data["epoch"], extracted_data["val_loss"], alpha=0.7, c='red', label='Val loss')
 
     plt.title('Train loss (blue) VS Validation loss')
-    plt.xlabel('Epoch')
+    plt.xlabel('Epoch') 
     plt.ylabel('Loss')
+    plt.legend(['Train loss', 'Val loss'])
     plt.grid(True)
     plt.savefig(path + 'trainloss.jpg')
     plt.show()
 
 if __name__ == "__main__":
-    path = "../code/task2/task2.4/"
-    # for x in os.listdir(path):
-    #     if("results" in x):
-    #         full_path = path + x
-    #         print(full_path)
-    #         plot_folder(full_path)
-    x = "results_e100_l0.001_adam_model06_ReLU"
+    path = "../code/task1/task1.4/"
+    for x in os.listdir(path):
+        if("results" in x):
+            full_path = path + x
+            print(full_path)
+            plot_folder(full_path)
+    #x = "results_e100_l0.001_adam_model06_ReLU"
     full_path = path + x
     plot_folder(full_path)

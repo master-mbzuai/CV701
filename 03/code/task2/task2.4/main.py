@@ -72,7 +72,7 @@ def START_seed():
 
 transform = transforms.Compose(
         [transforms.ToTensor(), 
-        #transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
         transforms.Resize((160, 160), antialias=True),
         #v2.RandomResizedCrop(160, antialias=True)
         ]
@@ -92,15 +92,15 @@ print(val_size)
 train_size = len(trainset) - val_size
 train, val = torch.utils.data.random_split(trainset, [train_size, val_size])   
 
-cutmix = v2.CutMix(num_classes=10)
-mixup = v2.MixUp(num_classes=10)
+cutmix = v2.CutMix(num_classes=10, alpha=1)
+mixup = v2.MixUp(num_classes=10, alpha=1)
 cutmix_or_mixup = v2.RandomChoice([cutmix, mixup])
 
 def collate_fn(batch):
     return cutmix_or_mixup(*default_collate(batch))
 
 train_loader = torch.utils.data.DataLoader(
-    train, batch_size=batch_size, shuffle=True, num_workers=8, collate_fn=collate_fn
+    train, batch_size=batch_size, shuffle=True, num_workers=4, collate_fn=collate_fn
 )
 val_loader = torch.utils.data.DataLoader(
     val, batch_size=batch_size, shuffle=False, num_workers=4
