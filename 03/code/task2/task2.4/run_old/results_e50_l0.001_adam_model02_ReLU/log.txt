@@ -1,0 +1,101 @@
+Epoch: 0 - train loss: 2.2510 accuracy: 1.0341
+ val loss: 2.0779 accuracy: 22.2838 best_loss: 2.0779 best_accuracy: 22.2838
+Epoch: 1 - train loss: 2.1796 accuracy: 1.5142
+ val loss: 2.0173 accuracy: 23.5033 best_loss: 2.0173 best_accuracy: 23.5033
+Epoch: 2 - train loss: 2.1592 accuracy: 0.9479
+ val loss: 2.0705 accuracy: 25.0554 best_loss: 2.0173 best_accuracy: 23.5033
+Epoch: 3 - train loss: 2.1312 accuracy: 1.2311
+ val loss: 1.9720 accuracy: 25.8315 best_loss: 1.9720 best_accuracy: 25.8315
+Epoch: 4 - train loss: 2.1217 accuracy: 1.0218
+ val loss: 1.9248 accuracy: 27.9379 best_loss: 1.9248 best_accuracy: 27.9379
+Epoch: 5 - train loss: 2.1047 accuracy: 1.2188
+ val loss: 1.9449 accuracy: 29.6009 best_loss: 1.9248 best_accuracy: 27.9379
+Epoch: 6 - train loss: 2.0779 accuracy: 0.8987
+ val loss: 1.9459 accuracy: 28.7140 best_loss: 1.9248 best_accuracy: 27.9379
+Epoch: 7 - train loss: 2.0511 accuracy: 0.6894
+ val loss: 1.8785 accuracy: 31.8182 best_loss: 1.8785 best_accuracy: 31.8182
+Epoch: 8 - train loss: 2.0414 accuracy: 1.4404
+ val loss: 1.7838 accuracy: 34.8115 best_loss: 1.7838 best_accuracy: 34.8115
+Epoch: 9 - train loss: 2.0395 accuracy: 1.7112
+ val loss: 2.1781 accuracy: 27.4945 best_loss: 1.7838 best_accuracy: 34.8115
+Epoch: 10 - train loss: 1.9914 accuracy: 0.7017
+ val loss: 1.7844 accuracy: 31.2639 best_loss: 1.7838 best_accuracy: 34.8115
+Epoch: 11 - train loss: 1.9998 accuracy: 1.7235
+ val loss: 1.7935 accuracy: 35.2550 best_loss: 1.7838 best_accuracy: 34.8115
+Epoch: 12 - train loss: 1.9799 accuracy: 0.7386
+ val loss: 1.7079 accuracy: 40.3548 best_loss: 1.7079 best_accuracy: 40.3548
+Epoch: 13 - train loss: 1.9908 accuracy: 1.0710
+ val loss: 1.6889 accuracy: 40.7982 best_loss: 1.6889 best_accuracy: 40.7982
+Epoch: 14 - train loss: 1.9454 accuracy: 1.5265
+ val loss: 1.6372 accuracy: 40.4656 best_loss: 1.6372 best_accuracy: 40.7982
+Epoch: 15 - train loss: 1.9513 accuracy: 1.4404
+ val loss: 1.7694 accuracy: 38.5809 best_loss: 1.6372 best_accuracy: 40.7982
+Epoch: 16 - train loss: 1.9058 accuracy: 1.0587
+ val loss: 1.7122 accuracy: 40.6874 best_loss: 1.6372 best_accuracy: 40.7982
+Epoch: 17 - train loss: 1.9352 accuracy: 0.8618
+ val loss: 1.7874 accuracy: 33.2594 best_loss: 1.6372 best_accuracy: 40.7982
+Epoch: 18 - train loss: 1.9184 accuracy: 1.6496
+ val loss: 1.7559 accuracy: 37.4723 best_loss: 1.6372 best_accuracy: 40.7982
+Epoch: 19 - train loss: 1.9347 accuracy: 1.2434
+ val loss: 1.6699 accuracy: 41.7960 best_loss: 1.6372 best_accuracy: 40.7982
+Epoch: 20 - train loss: 1.8939 accuracy: 1.0464
+ val loss: 1.5925 accuracy: 46.6741 best_loss: 1.5925 best_accuracy: 46.6741
+Epoch: 21 - train loss: 1.8783 accuracy: 0.8002
+ val loss: 1.6597 accuracy: 40.9091 best_loss: 1.5925 best_accuracy: 46.6741
+Epoch: 22 - train loss: 1.8742 accuracy: 1.0095
+ val loss: 1.6623 accuracy: 40.7982 best_loss: 1.5925 best_accuracy: 46.6741
+Epoch: 23 - train loss: 1.8746 accuracy: 0.6402
+ val loss: 1.6322 accuracy: 44.6785 best_loss: 1.5925 best_accuracy: 46.6741
+Epoch: 24 - train loss: 1.8810 accuracy: 0.9479
+ val loss: 1.6784 accuracy: 38.5809 best_loss: 1.5925 best_accuracy: 46.6741
+Epoch: 25 - train loss: 1.8769 accuracy: 1.1695
+ val loss: 1.5314 accuracy: 46.7849 best_loss: 1.5314 best_accuracy: 46.7849
+Epoch: 26 - train loss: 1.8371 accuracy: 1.0957
+ val loss: 1.7193 accuracy: 37.8049 best_loss: 1.5314 best_accuracy: 46.7849
+Epoch: 27 - train loss: 1.7640 accuracy: 1.4280
+ val loss: 1.5512 accuracy: 45.1220 best_loss: 1.5314 best_accuracy: 46.7849
+Epoch: 28 - train loss: 1.8448 accuracy: 0.7756
+ val loss: 1.5456 accuracy: 44.4568 best_loss: 1.5314 best_accuracy: 46.7849
+Epoch: 29 - train loss: 1.7810 accuracy: 0.9972
+ val loss: 1.5923 accuracy: 43.9024 best_loss: 1.5314 best_accuracy: 46.7849
+Epoch: 30 - train loss: 1.8199 accuracy: 1.1326
+ val loss: 1.5314 accuracy: 47.7827 best_loss: 1.5314 best_accuracy: 47.7827
+Epoch: 31 - train loss: 1.7847 accuracy: 1.1326
+ val loss: 1.4412 accuracy: 50.2217 best_loss: 1.4412 best_accuracy: 50.2217
+Epoch: 32 - train loss: 1.7657 accuracy: 1.3296
+ val loss: 1.5778 accuracy: 46.2306 best_loss: 1.4412 best_accuracy: 50.2217
+Epoch: 33 - train loss: 1.7692 accuracy: 1.1818
+ val loss: 1.4009 accuracy: 53.1042 best_loss: 1.4009 best_accuracy: 53.1042
+Epoch: 34 - train loss: 1.7742 accuracy: 0.8248
+ val loss: 1.3377 accuracy: 53.3259 best_loss: 1.3377 best_accuracy: 53.3259
+Epoch: 35 - train loss: 1.7665 accuracy: 0.9725
+ val loss: 1.3698 accuracy: 53.6585 best_loss: 1.3377 best_accuracy: 53.3259
+Epoch: 36 - train loss: 1.7453 accuracy: 1.1326
+ val loss: 1.4075 accuracy: 51.6630 best_loss: 1.3377 best_accuracy: 53.3259
+Epoch: 37 - train loss: 1.7601 accuracy: 1.4773
+ val loss: 1.3856 accuracy: 53.5477 best_loss: 1.3377 best_accuracy: 53.3259
+Epoch: 38 - train loss: 1.7594 accuracy: 0.7510
+ val loss: 1.3547 accuracy: 54.5455 best_loss: 1.3377 best_accuracy: 53.3259
+Epoch: 39 - train loss: 1.7326 accuracy: 1.1449
+ val loss: 1.3762 accuracy: 51.3304 best_loss: 1.3377 best_accuracy: 53.3259
+Epoch: 40 - train loss: 1.7093 accuracy: 1.3665
+ val loss: 1.2920 accuracy: 55.9867 best_loss: 1.2920 best_accuracy: 55.9867
+Epoch: 41 - train loss: 1.7141 accuracy: 0.7756
+ val loss: 1.2991 accuracy: 53.6585 best_loss: 1.2920 best_accuracy: 55.9867
+Epoch: 42 - train loss: 1.6832 accuracy: 1.0710
+ val loss: 1.4225 accuracy: 51.7738 best_loss: 1.2920 best_accuracy: 55.9867
+Epoch: 43 - train loss: 1.7398 accuracy: 0.8494
+ val loss: 1.2737 accuracy: 57.0953 best_loss: 1.2737 best_accuracy: 57.0953
+Epoch: 44 - train loss: 1.7139 accuracy: 1.4404
+ val loss: 1.2358 accuracy: 57.5388 best_loss: 1.2358 best_accuracy: 57.5388
+Epoch: 45 - train loss: 1.6474 accuracy: 1.1449
+ val loss: 1.3749 accuracy: 50.6652 best_loss: 1.2358 best_accuracy: 57.5388
+Epoch: 46 - train loss: 1.6308 accuracy: 1.3049
+ val loss: 1.2972 accuracy: 55.0998 best_loss: 1.2358 best_accuracy: 57.5388
+Epoch: 47 - train loss: 1.6701 accuracy: 1.5881
+ val loss: 1.3078 accuracy: 56.6519 best_loss: 1.2358 best_accuracy: 57.5388
+Epoch: 48 - train loss: 1.7309 accuracy: 1.0218
+ val loss: 1.2625 accuracy: 58.0931 best_loss: 1.2358 best_accuracy: 57.5388
+Epoch: 49 - train loss: 1.6864 accuracy: 1.4527
+ val loss: 1.2715 accuracy: 56.6519 best_loss: 1.2358 best_accuracy: 57.5388
+Test loss: 1.1960 Accuracy: 61.03%
