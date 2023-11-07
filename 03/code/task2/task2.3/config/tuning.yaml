@@ -1,13 +1,15 @@
-name: model_05
+name: model_06
 entity: evhenia-k-you
-program: main.py
-method: bayes
+program: main_wandb.py
+method: grid
 metric:
   goal: maximize
   name: test/accuracy
 parameters:
   model:
-    value: model05
+    value: model06
+  opt:
+    value: NAdam
   epochs:
     values: [25, 38, 50]
   batch_size:
