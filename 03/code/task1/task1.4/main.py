@@ -45,7 +45,6 @@ activation=nn.ReLU()
 module_name=params.model_name
 path=params.output_folder + "_e" + str(params.epochs) + "_l" + str(params.lr) + "_" + str(params.opt) + "_" + str(module_name) + "_" + str(activation).split("(")[0]
 
-
 module = importlib.import_module(module_name)
 CNN = getattr(module, "CNN")
 

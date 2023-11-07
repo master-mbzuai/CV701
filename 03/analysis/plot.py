@@ -60,12 +60,12 @@ def plot_folder(path):
     plt.show()
 
 if __name__ == "__main__":
-    path = "../code/task1/task1.4/"
-    for x in os.listdir(path):
-        if("results" in x):
-            full_path = path + x
-            print(full_path)
-            plot_folder(full_path)
-    #x = "results_e100_l0.001_adam_model06_ReLU"
+    path = "../code/task2/task2.4/"
+    # for x in os.listdir(path):
+    #     if("results" in x):
+    #         full_path = path + x
+    #         print(full_path)
+    #         plot_folder(full_path)
+    x = "results_e50_l0.001_nadam_model06_ReLU_best"
     full_path = path + x
     plot_folder(full_path)

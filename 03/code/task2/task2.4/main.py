@@ -92,8 +92,8 @@ print(val_size)
 train_size = len(trainset) - val_size
 train, val = torch.utils.data.random_split(trainset, [train_size, val_size])   
 
-cutmix = v2.CutMix(num_classes=10, alpha=1)
-mixup = v2.MixUp(num_classes=10, alpha=1)
+cutmix = v2.CutMix(num_classes=10, alpha=0.8)
+mixup = v2.MixUp(num_classes=10, alpha=0.8)
 cutmix_or_mixup = v2.RandomChoice([cutmix, mixup])
 
 def collate_fn(batch):
@@ -232,6 +232,8 @@ if __name__ == "__main__":
         optimizer = optim.Adam(model.parameters(), lr=params.lr)
     elif(params.opt == "adamW"):
         optimizer = optim.AdamW(model.parameters(), lr=params.lr)
+    elif(params.opt == "nadam"):
+        optimizer = optim.NAdam(model.parameters(), lr=params.lr)
     else:
         optimizer = optim.SGD(model.parameters(), lr=params.lr)
 
