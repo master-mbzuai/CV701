@@ -1,4 +1,4 @@
-name: model_06
+name: model_02
 entity: evhenia-k-you
 program: main_wandb.py
 method: grid
@@ -7,7 +7,7 @@ metric:
   name: test/accuracy
 parameters:
   model:
-    value: model06
+    value: model02
   opt:
     value: NAdam
   epochs:
