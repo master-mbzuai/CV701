@@ -76,26 +76,7 @@ if __name__ == "__main__":
             tmp = (pred.argmax(1) == batch[1]).float()                                    
         else:
             tmp = (pred.argmax(1) == batch[1].argmax(1)).float()
-        return tmp            
-        
-    # train_transform = transforms.Compose(
-    #     [
-    #      transforms.ToTensor(), 
-    #      transforms.Normalize((0.5070751592371323, 0.48654887331495095, 0.4409178433670343), (0.26733428587941854, 0.25643846292120615, 0.2761504713263903)), 
-    #      #transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)), 
-    #      transforms.Resize((160, 160), antialias=True), 
-    #      transforms.RandomHorizontalFlip(0.5),
-    #      transforms.RandomRotation(10),         
-    #     ] 
-    # )
-    # transform = transforms.Compose(
-    #     [
-    #      transforms.ToTensor(), 
-    #      transforms.Normalize((0.5070751592371323, 0.48654887331495095, 0.4409178433670343), (0.26733428587941854, 0.25643846292120615, 0.2761504713263903)), 
-    #      #transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)), 
-    #      transforms.Resize((160, 160), antialias=True),          
-    #     ] 
-    # )
+        return tmp                    
 
     train_transform = transforms.Compose(
         [
