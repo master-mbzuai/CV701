@@ -25,6 +25,7 @@
 03/image
 03/imagewoof2-160
 
-04/data
+04/data/test
+04/data/training
 
 **.pth

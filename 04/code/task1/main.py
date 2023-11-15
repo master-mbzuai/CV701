@@ -10,7 +10,7 @@ from ptflops import get_model_complexity_info
 
 from dataset import FacialKeypointsDataset
 
-from .models.model1 import FacialPoints
+from models.model1 import FacialPoints
 
 import os
 import random
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     train_transform = transforms.Compose(
         [
          transforms.ToTensor(),                   
-         transforms.Resize((250, 250), antialias=True),         
+         transforms.Resize((160, 160), antialias=True),         
 
         ] 
     )
@@ -108,14 +108,14 @@ if __name__ == "__main__":
         [
          transforms.ToTensor(),          
          transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)), 
-         transforms.Resize((250, 250), antialias=True),          
+         transforms.Resize((160, 160), antialias=True),          
         ] 
     )
     trainset = FacialKeypointsDataset(
-        root="../../data/", train=True, download=True, transform=train_transform
+        root_dir="../../data/training", transform=train_transform
     )
     testset = FacialKeypointsDataset(
-        root="../../data/", train=False, download=True, transform=transform
+        root_dir="../../data/test", transform=transform
     )               
 
     train_loader = torch.utils.data.DataLoader(
@@ -129,7 +129,7 @@ if __name__ == "__main__":
         num_workers=2,
     )
     
-    save_parameters(m, hparams)
+    #save_parameters(m, hparams)
 
     acc = Metric(name="accuracy", fn=compute_accuracy)    
 
