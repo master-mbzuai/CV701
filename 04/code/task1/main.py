@@ -90,10 +90,12 @@ if __name__ == "__main__":
         ] 
     )
     trainset = FacialKeypointsDataset(
-        root_dir="./data/training_reshaped_stretch/", csv_file="./data/training_frames_keypoints_resized.csv", transform=train_transform
+        #root_dir="./data/training_reshaped_stretch/", csv_file="./data/training_frames_keypoints_resized.csv", transform=train_transform
+        root_dir="../../data/training_reshaped_stretch/", csv_file="../../data/training_frames_keypoints_resized.csv", transform=train_transform
     )
     testset = FacialKeypointsDataset(
-        root_dir="./data/test_reshaped_stretch/", csv_file="./data/test_frames_keypoints_resized.csv", transform=transform
+        #root_dir="./data/test_reshaped_stretch/", csv_file="./data/test_frames_keypoints_resized.csv", transform=transform
+        root_dir="../../data/test_reshaped_stretch/", csv_file="../../data/test_frames_keypoints_resized.csv", transform=transform
     )               
 
     train_loader = torch.utils.data.DataLoader(
