@@ -30,7 +30,7 @@ class FacialPoints(MicroMind):
         super().__init__(*args, **kwargs)
 
         self.input = 344
-        self.output = 100
+        self.output = 136
 
         # alpha: 0.9
         # beta: 0.5
@@ -73,7 +73,7 @@ class FacialPoints(MicroMind):
         return x
 
     def compute_loss(self, pred, batch):
-        return nn.MSELoss(pred, batch[1])
+        return nn.MSELoss()(pred, batch[1])
     
     def configure_optimizers(self):
         """Configures and defines the optimizer for the task. Defaults to adam

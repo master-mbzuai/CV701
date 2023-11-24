@@ -3,3 +3,5 @@ First step data preprocessing
 -> create a script that transforms and upscales the images into 224x224 images. 
 
 This is the beginning of the project
+
+We might even try to perform two different tests -> reshape with padding and reshape with stretching

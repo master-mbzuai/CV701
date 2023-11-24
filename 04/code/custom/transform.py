@@ -56,7 +56,7 @@ class Rescale(object):
         # scale the pts, too
         key_pts = key_pts * [new_w / w, new_h / h]
 
-        return {"image": img, "keypoints": key_pts}
+        return {"image": img, "keypoints": key_pts} 
 
 
 class RandomCrop(object):

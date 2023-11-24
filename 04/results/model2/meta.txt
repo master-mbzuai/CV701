@@ -1,0 +1,1 @@
+Namespace(lr=0.001, opt='adam', experiment_name='model2', output_folder='results', debug=False, d=0, model_name='original', epochs=50)

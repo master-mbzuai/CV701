@@ -4,7 +4,7 @@ from torch.utils.data import Dataset
 import matplotlib.image as mpimg
 import pandas as pd
 from PIL import Image
-
+import numpy as np
 
 class FacialKeypointsDataset(Dataset):
     """Face Landmarks dataset."""
@@ -27,18 +27,20 @@ class FacialKeypointsDataset(Dataset):
     def __getitem__(self, idx):
         image_name = os.path.join(self.root_dir, self.key_pts_frame.iloc[idx, 0])
 
-        image = mpimg.imread(image_name)
-        # image = Imaage.(image_name)
+        image = np.asarray(Image.open(image_name), dtype=np.float32)
+
+        # change color channel from 224 224 3 to 3 224 224
+
+        image = np.transpose(image, (1, 0, 2 ))
 
         # if image has an alpha color channel, get rid of it
-        if image.shape[2] == 4:
-            image = image[:, :, 0:3]
+        # if image.shape[2] == 4:
+        #     image = image[:, :, 0:3]
 
         key_pts = self.key_pts_frame.iloc[idx, 1:].to_numpy()
-        key_pts = key_pts.astype("float").reshape(-1, 2)
-        sample = {"image": image, "keypoints": key_pts}
+        key_pts = key_pts.astype("float32")
 
         if self.transform:
-            sample = self.transform(sample)
-
-        return sample
+            image = self.transform(image)
+        
+        return image, key_pts

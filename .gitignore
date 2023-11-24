@@ -29,6 +29,8 @@
 04/data/training
 04/data/test_reshaped
 04/data/training_reshaped
+04/data/test_reshaped_stretch
+04/data/training_reshaped_stretch
 
 **.pth
 
