@@ -31,37 +31,6 @@ def START_seed():
     torch.cuda.manual_seed_all(seed)
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
-    
-def save_parameters(model, hparams):
-
-    path = hparams.output_folder + "/" + hparams.experiment_name
-
-    input = (3, 32, 32)
-    macs_backbone, params_backbone = get_model_complexity_info(model.modules["feature_extractor"], input, as_strings=False,
-                                           print_per_layer_stat=False, verbose=False)        
-    summary_backbone = summary(model.modules["feature_extractor"], input_size=(batch_size, 3, 32, 32))        
-
-    input = (model.input, 1, 1)
-    macs_classifier, params_classifier = get_model_complexity_info(model.modules["classifier"], input, as_strings=False,
-                                           print_per_layer_stat=False, verbose=False)        
-    summary_classifier = summary(model.modules["classifier"], input_size=(10, model.input, 1, 1))    
-
-    output = "BACKBONE\n" 
-    output += "MACs {}, learnable parameters {}\n".format(macs_backbone, params_backbone)
-    output += str(summary_backbone) + "\n"
-    output += "\n"*2
-    output += "CLASSIFIER\n" 
-    output += "MACs {}, learnable parameters {}\n".format(macs_classifier, params_classifier)
-    output += str(summary_classifier)        
-
-    if not os.path.exists(path):
-        os.makedirs(path)
-
-    with open(path + '/architecture.txt', 'w') as file:
-        file.write(output)    
-
-    with open(path + '/meta.txt', 'w') as file:
-        file.write(str(hparams))
 
 if __name__ == "__main__":  
 
@@ -80,23 +49,19 @@ if __name__ == "__main__":
 
     train_transform = transforms.Compose(
         [
-         transforms.ToTensor(),                   
-         transforms.Resize((160, 160), antialias=True),         
-
+            transforms.ToTensor(),                   
         ] 
     )
     transform = transforms.Compose(
         [
-         transforms.ToTensor(),          
-         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)), 
-         transforms.Resize((160, 160), antialias=True),          
+            transforms.ToTensor(),
         ] 
     )
     trainset = FacialKeypointsDataset(
-        root_dir="../../data/training", transform=train_transform
+        root_dir="./data/training_reshaped", csv_file="./data/training_frames_keypoints_resized.csv", transform=train_transform
     )
     testset = FacialKeypointsDataset(
-        root_dir="../../data/test", transform=transform
+        root_dir="./data/test_reshaped", csv_file="./data/test_frames_keypoints_resized.csv", transform=transform
     )               
 
     train_loader = torch.utils.data.DataLoader(

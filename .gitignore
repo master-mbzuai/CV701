@@ -27,5 +27,8 @@
 
 04/data/test
 04/data/training
+04/data/test_reshaped
+04/data/training_reshaped
 
 **.pth
+

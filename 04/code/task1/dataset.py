@@ -3,6 +3,7 @@ import os
 from torch.utils.data import Dataset
 import matplotlib.image as mpimg
 import pandas as pd
+from PIL import Image
 
 
 class FacialKeypointsDataset(Dataset):
@@ -27,6 +28,7 @@ class FacialKeypointsDataset(Dataset):
         image_name = os.path.join(self.root_dir, self.key_pts_frame.iloc[idx, 0])
 
         image = mpimg.imread(image_name)
+        # image = Imaage.(image_name)
 
         # if image has an alpha color channel, get rid of it
         if image.shape[2] == 4:
