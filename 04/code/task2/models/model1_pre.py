@@ -11,7 +11,7 @@ REPO_ID = "micromind/ImageNet"
 FILENAME = "v7/state_dict.pth.tar"
 
 #model_path = "./code/task2/pretrained/epoch_27_val_loss_14.9642.ckpt"
-model_path = "./pretrained/epoch_27_val_loss_14.9642.ckpt"
+model_path = "./pretrained/m1/epoch_27_val_loss_14.9642.ckpt"
 
 if torch.cuda.is_available():
     device = torch.device("cuda:0")

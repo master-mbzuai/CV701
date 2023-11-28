@@ -116,8 +116,10 @@ if __name__ == "__main__":
     epochs = hparams.epochs 
 
     m.train(
-        epochs=epochs,
+        epochs=1,
         datasets={"train": train_loader, "val": test_loader},
         metrics=[acc],
         debug=hparams.debug,
     )
+    
+    m.export("output.tflite", "tflite", (3, 224, 224))
