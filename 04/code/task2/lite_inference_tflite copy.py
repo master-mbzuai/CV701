@@ -67,17 +67,17 @@ if __name__== "__main__":
 
         while True:
 
-            # ret, frame = cap.read(0)
-            # if not ret:
-            #     break
+            ret, frame = cap.read(0)
+            if not ret:
+                break
 
-            # # Crop the image
-            # cropped_image = frame[y_start:y_start+crop_size, x_start:x_start+crop_size]
+            # Crop the image
+            cropped_image = frame[y_start:y_start+crop_size, x_start:x_start+crop_size]
 
-            # resized = cv2.resize(cropped_image, IMG_SZ)
+            resized = cv2.resize(cropped_image, IMG_SZ)
 
-            frame = cv2.resize(cap.read()[1], IMG_SZ, interpolation=cv2.INTER_LINEAR)
-            input_img = preprocess_img(frame)
+            #frame = cv2.resize(cap.read()[1], IMG_SZ, interpolation=cv2.INTER_LINEAR)
+            input_img = preprocess_img(resized)
             
             # input_img = np.transpose(input_img, (0, 3, 1, 2))
             # print(input_img.shape)
@@ -106,11 +106,11 @@ if __name__== "__main__":
             log_file.write(f"{inference_time} - {calculated_fps}\n")
 
             for i in range(68):
-                cv2.circle(frame, (int(keypoints[i][0]), int(keypoints[i][1])), 2, (0, 255, 0), 3)
+                cv2.circle(resized, (int(keypoints[i][0]), int(keypoints[i][1])), 2, (0, 255, 0), 3)
 
             # Display the FPS on the frame
-            cv2.putText(frame, f"FPS : {calculated_fps:.2f}", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-            cv2.putText(frame, f"IT : {inference_time:.2f}", (10, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(resized, f"FPS : {calculated_fps:.2f}", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(resized, f"IT : {inference_time:.2f}", (10, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
-            cv2.imshow('out',frame)
+            cv2.imshow('out',resized)
             cv2.waitKey(1)
