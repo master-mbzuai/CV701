@@ -6,8 +6,6 @@ import numpy as np
 from models.model1_pre import FacialPoints
 from micromind.utils.parse import parse_arguments
 
-from ptflops import get_model_complexity_info
-
 # Initialize the camera
 cap = cv2.VideoCapture(0)  # Change '0' to '-1' if '0' does not work
 
@@ -39,23 +37,6 @@ hparams = parse_arguments()
 m = FacialPoints(hparams)
 m.modules.eval()
 
-
-# backbone
-# print(m.modules["feature_extractor"].get_MAC())
-# print(m.modules["feature_extractor"].get_params())
-
-# classifier
-
-# network information
-# flop, param = get_model_complexity_info(m.modules["classifier"], (m.input, 1, 1), as_strings=False,
-#                                            print_per_layer_stat=False, verbose=False)
-
-# tot_mac = m.modules["feature_extractor"].get_MAC() + flop/2
-# tot_param = m.modules["feature_extractor"].get_params() + param
-
-# print(tot_mac, tot_param)
-
-
 with open("fps_log.txt", "w") as log_file:    
     with torch.no_grad():
         while True:
@@ -65,38 +46,24 @@ with open("fps_log.txt", "w") as log_file:
             
             # Crop the image
             cropped_image = frame[y_start:y_start+crop_size, x_start:x_start+crop_size]
+            
+            resized = cv2.resize(cropped_image, (224, 224))
+            resized = np.array(resized).astype(np.float32)
 
-            # Convert the entire original image to grayscale
-            gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-            # Convert the grayscale image back to BGR (to match color space)
-            gray_image_colored = cv2.cvtColor(gray_image, cv2.COLOR_GRAY2BGR)
-
-            # Replace the cropped area in the grayscale image with the cropped color image
-            gray_image_colored[y_start:y_start+crop_size, x_start:x_start+crop_size] = cropped_image
-
-            ## MODEL INFERENCE
-
-            resized = cv2.resize(cropped_image, (224, 224), interpolation=cv2.INTER_LINEAR)
-            # resized = np.array(resized).astype(np.float32)
-            resized = np.asarray(resized, dtype=np.float16)
-            resized = np.expand_dims(resized,0)
-
-            # input = [torch.tensor(resized).permute(2, 1, 0).view(1, 3, 224, 224)]            
-            input = [torch.tensor(resized).permute(0, 3, 2, 1)]            
+            input = [torch.tensor(resized).permute(2, 1, 0).view(1, 3, 224, 224)]            
 
             keypoints = m.forward(input)
 
-            ## SHOWING THINGS ON SCREEN            
+            ## SHOWING THINGS ON SCREEN
 
             keypoints = keypoints.view(-1, 2)
             keypoints = keypoints * 1080/224
-
-            for i in range(68):
-                cv2.circle(cropped_image, (int(keypoints[i][0]), int(keypoints[i][1])), 2, (0, 255, 0), 3)
-
+            
             # Time when we finish processing for this frame
             new_frame_time = time.time()
+
+            # Set camera properties for 60 FPS
+            cap.set(cv2.CAP_PROP_FPS, 60)
 
             # Calculating the fps
             inference_time = str(new_frame_time-prev_frame_time)
@@ -110,11 +77,14 @@ with open("fps_log.txt", "w") as log_file:
             # Convert the fps to string so that we can display it on frame
             fps = str(int(fps))
 
-            # Put fps on the frame
-            cv2.putText(cropped_image, inference_time, (7, 140), cv2.FONT_HERSHEY_SIMPLEX, 3, (100, 255, 0), 3, cv2.LINE_AA)
-            cv2.putText(cropped_image, fps, (7, 70), cv2.FONT_HERSHEY_SIMPLEX, 3, (100, 255, 0), 3, cv2.LINE_AA)
-            cv2.imshow('Frame', cropped_image)
+            # display the image
 
+            for i in range(68):
+                cv2.circle(cropped_image, (int(keypoints[i][0]), int(keypoints[i][1])), 2, (0, 255, 0), 3)
+
+            cv2.imshow('frame', cropped_image)
+
+        
             log_file.write(f"{new_frame_time} - {fps}\n")
 
             # Break the loop with the 'q' key
