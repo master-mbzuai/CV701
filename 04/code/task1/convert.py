@@ -17,7 +17,7 @@ from ptflops import get_model_complexity_info
 
 from dataset import FacialKeypointsDataset
 
-from models.model2 import FacialPoints
+from models.model1_pre import FacialPoints
 
 import os
 import random
