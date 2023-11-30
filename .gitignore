@@ -16,3 +16,10 @@
 # single files
 01/code/tasks/2.2/contrast.ipynb
 01/code/tasks/2.2/dark.ipynb
+
+*jpg
+*JPEG
+*pyc
+*tgz
+*wandb*
+*results*
