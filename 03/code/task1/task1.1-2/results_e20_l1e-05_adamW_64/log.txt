@@ -1,0 +1,41 @@
+0 train loss: 2.3041 accuracy: 10.3533
+ val loss: 2.3036 accuracy: 8.8692 best_accuracy: 0.0000
+1 train loss: 2.3022 accuracy: 10.3533
+ val loss: 2.3001 accuracy: 8.8692 best_accuracy: 8.8692
+2 train loss: 2.2898 accuracy: 12.2984
+ val loss: 2.2662 accuracy: 10.8647 best_accuracy: 8.8692
+3 train loss: 2.2499 accuracy: 13.6649
+ val loss: 2.2021 accuracy: 19.0687 best_accuracy: 10.8647
+4 train loss: 2.1718 accuracy: 19.9680
+ val loss: 2.0984 accuracy: 20.7317 best_accuracy: 19.0687
+5 train loss: 2.1032 accuracy: 22.6025
+ val loss: 2.0708 accuracy: 23.3925 best_accuracy: 20.7317
+6 train loss: 2.0758 accuracy: 23.0211
+ val loss: 2.0645 accuracy: 22.5055 best_accuracy: 23.3925
+7 train loss: 2.0619 accuracy: 23.3781
+ val loss: 2.0341 accuracy: 24.0576 best_accuracy: 23.3925
+8 train loss: 2.0517 accuracy: 24.1659
+ val loss: 2.0280 accuracy: 24.8337 best_accuracy: 24.0576
+9 train loss: 2.0451 accuracy: 23.9074
+ val loss: 2.0304 accuracy: 24.3902 best_accuracy: 24.8337
+10 train loss: 2.0400 accuracy: 24.6214
+ val loss: 2.0241 accuracy: 25.7206 best_accuracy: 24.8337
+11 train loss: 2.0315 accuracy: 24.7815
+ val loss: 2.0172 accuracy: 26.3858 best_accuracy: 25.7206
+12 train loss: 2.0285 accuracy: 24.7569
+ val loss: 2.0188 accuracy: 26.2749 best_accuracy: 26.3858
+13 train loss: 2.0233 accuracy: 25.3355
+ val loss: 2.0133 accuracy: 26.1641 best_accuracy: 26.3858
+14 train loss: 2.0204 accuracy: 25.6186
+ val loss: 2.0433 accuracy: 24.3902 best_accuracy: 26.3858
+15 train loss: 2.0155 accuracy: 25.7417
+ val loss: 2.0333 accuracy: 26.7184 best_accuracy: 26.3858
+16 train loss: 2.0117 accuracy: 25.8894
+ val loss: 2.0201 accuracy: 26.2749 best_accuracy: 26.7184
+17 train loss: 2.0096 accuracy: 25.6555
+ val loss: 2.0191 accuracy: 25.8315 best_accuracy: 26.7184
+18 train loss: 2.0056 accuracy: 26.0495
+ val loss: 2.0089 accuracy: 26.6075 best_accuracy: 26.7184
+19 train loss: 2.0017 accuracy: 26.4434
+ val loss: 2.0073 accuracy: 27.1619 best_accuracy: 26.7184
+Test loss: 2.0132 Accuracy: 25.53%

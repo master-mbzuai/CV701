@@ -4,6 +4,9 @@
 !01/code
 
 *.zip
+*.tgz
+*.csv
+*.JPEG
 
 01/images/*
 !01/images/used_images
@@ -23,3 +26,21 @@
 *tgz
 *wandb*
 *results*
+
+*wandb*
+
+03/image
+03/imagewoof2-160
+
+04/data/test
+04/data/training
+04/data/test_reshaped
+04/data/training_reshaped
+04/data/test_reshaped_stretch
+04/data/training_reshaped_stretch
+04/data/train_cropped_face_first_padding_resize
+04/data/test_cropped_face_first_padding_resize
+04/data/train_padding_resize
+
+**.pth
+

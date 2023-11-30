@@ -1,0 +1,16 @@
+name: model_02
+entity: evhenia-k-you
+program: main_wandb.py
+method: grid
+metric:
+  goal: maximize
+  name: test/accuracy
+parameters:
+  model:
+    value: model02
+  opt:
+    value: NAdam
+  epochs:
+    values: [25, 38, 50]
+  batch_size:
+    values: [32, 45, 64]

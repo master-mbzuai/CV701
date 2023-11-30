@@ -1,0 +1,41 @@
+0 train loss: 2.2993 accuracy: 9.9840
+ val loss: 2.2867 accuracy: 10.1996 best_accuracy: 0.0000
+1 train loss: 2.1350 accuracy: 19.9187
+ val loss: 2.0333 accuracy: 22.2838 best_accuracy: 10.1996
+2 train loss: 2.0399 accuracy: 24.9908
+ val loss: 2.0029 accuracy: 25.2772 best_accuracy: 22.2838
+3 train loss: 2.0008 accuracy: 26.5419
+ val loss: 1.9727 accuracy: 25.1663 best_accuracy: 25.2772
+4 train loss: 1.9691 accuracy: 27.9084
+ val loss: 1.9763 accuracy: 24.2794 best_accuracy: 25.2772
+5 train loss: 1.9409 accuracy: 29.4349
+ val loss: 1.9227 accuracy: 27.1619 best_accuracy: 25.2772
+6 train loss: 1.9142 accuracy: 30.3952
+ val loss: 1.9171 accuracy: 25.6098 best_accuracy: 27.1619
+7 train loss: 1.8844 accuracy: 32.1064
+ val loss: 1.9116 accuracy: 28.3814 best_accuracy: 27.1619
+8 train loss: 1.8597 accuracy: 32.6603
+ val loss: 1.9041 accuracy: 28.2705 best_accuracy: 28.3814
+9 train loss: 1.8352 accuracy: 33.9530
+ val loss: 1.9071 accuracy: 28.4922 best_accuracy: 28.3814
+10 train loss: 1.7980 accuracy: 35.6149
+ val loss: 1.9000 accuracy: 30.8204 best_accuracy: 28.4922
+11 train loss: 1.7596 accuracy: 37.0676
+ val loss: 1.9188 accuracy: 30.5987 best_accuracy: 30.8204
+12 train loss: 1.7142 accuracy: 38.8526
+ val loss: 1.9232 accuracy: 29.9335 best_accuracy: 30.8204
+13 train loss: 1.6658 accuracy: 40.7239
+ val loss: 1.9244 accuracy: 30.8204 best_accuracy: 30.8204
+14 train loss: 1.6123 accuracy: 43.0383
+ val loss: 1.9273 accuracy: 31.8182 best_accuracy: 30.8204
+15 train loss: 1.5443 accuracy: 45.8205
+ val loss: 1.9876 accuracy: 32.2616 best_accuracy: 31.8182
+16 train loss: 1.4603 accuracy: 48.0118
+ val loss: 2.0981 accuracy: 31.2639 best_accuracy: 32.2616
+17 train loss: 1.3781 accuracy: 51.7543
+ val loss: 2.1860 accuracy: 30.5987 best_accuracy: 32.2616
+18 train loss: 1.2832 accuracy: 54.9304
+ val loss: 2.2338 accuracy: 31.4856 best_accuracy: 32.2616
+19 train loss: 1.1697 accuracy: 59.1653
+ val loss: 2.3095 accuracy: 28.1596 best_accuracy: 32.2616
+Test loss: 1.9937 Accuracy: 32.32%
