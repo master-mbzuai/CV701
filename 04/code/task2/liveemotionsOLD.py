@@ -20,20 +20,11 @@ def extract_region_of_interest(keypoints, image, region_indices, padding=50):
     x_coordinates = [point[0] for point in keypoints[region_indices]]
     y_coordinates = [point[1] for point in keypoints[region_indices]]
 
-    print(x_coordinates, y_coordinates)
-
     #print(image.shape[0])
     x_min, x_max = max(0, min(x_coordinates) - padding), min(image.shape[1], max(x_coordinates) + padding)
     y_min, y_max = max(0, min(y_coordinates) - padding), min(image.shape[0], max(y_coordinates) + padding)
-
-    # round to integer
-
-    x_min = int(x_min)
-    x_max = int(x_max)
-    y_min = int(y_min)
-    y_max = int(y_max)
     
-    print(y_max, y_min, x_max, x_min)
+    #print(y_max, y_min, x_max, x_min)
 
     # Crop the region of interest from the image
     return image[y_min:y_max, x_min:x_max], (x_max, y_max), (x_min, y_min) 
@@ -88,14 +79,10 @@ templates = {
 eye_templates = [templates['eye'][emotion] for emotion in ['happy', 'sad']]
 mouth_templates = [templates['mouth'][emotion] for emotion in ['happy', 'sad']]
 
+
 # Extract ROIs for eyes and mouth from the image
 eye_indices = list(range(36, 48))  # Indices for eye keypoints
 mouth_indices = list(range(48, 68))  # Indices for mouth keypoints
-
-
-
-
-
 
 # Initialize the camera
 cap = cv2.VideoCapture(0)  # Change '0' to '-1' if '0' does not work
@@ -179,22 +166,23 @@ with open("fps_log.txt", "w") as log_file:
             keypoints = keypoints.view(-1, 2)
             keypoints = keypoints * 1080/224
 
-            #print(keypoints)
+            print(type(keypoints))
 
             ## EMOTIONS DETECTION
 
             # Load your image and convert it to grayscale if necessary
             image = cv2.cvtColor(cropped_image, cv2.COLOR_BGR2GRAY) if len(cropped_image.shape) == 3 else cropped_image
 
-            eye_roi, max_roi_eye, min_roi_eye = extract_region_of_interest(np.array(keypoints, dtype=np.float32), image, eye_indices)
-            mouth_roi, max_roi, min_roi = extract_region_of_interest(np.array(keypoints, dtype=np.float32), image, mouth_indices)
+            #eye_roi, min = extract_region_of_interest(np.array(keypoints, dtype=np.int8), image, eye_indices)
+            mouth_roi, max_roi, min_roi = extract_region_of_interest(np.array(keypoints, dtype=np.int8), image, mouth_indices)
+
+            print(min_roi, max_roi)
 
             cv2.rectangle(cropped_image, max_roi, min_roi, (0, 255, 0), 2)
-            cv2.rectangle(cropped_image, max_roi_eye, min_roi_eye, (0, 255, 0), 2)
 
             # Determine emotion by comparing the extracted ROIs with the templates
-            emotion = determine_emotion(eye_roi, mouth_roi, {'eye': eye_templates, 'mouth': mouth_templates})
-            cv2.putText(cropped_image, emotion, (7, 210), cv2.FONT_HERSHEY_SIMPLEX, 3, (100, 255, 0), 3, cv2.LINE_AA)
+            #emotion = determine_emotion(eye_roi, mouth_roi, {'eye': eye_templates, 'mouth': mouth_templates})
+            #cv2.putText(cropped_image, emotion, (7, 210), cv2.FONT_HERSHEY_SIMPLEX, 3, (100, 255, 0), 3, cv2.LINE_AA)
 
             ## SHOWING THINGS ON SCREEN            
 
