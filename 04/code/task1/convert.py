@@ -62,15 +62,16 @@ if __name__ == "__main__":
     print(batch[0].permute(0,3,2,1).shape)
     print(type(batch[0]))
 
-    m = FacialPoints(hparams) 
-
-
-    torch.randn(10, 224, 224, 3)
+    m = FacialPoints(hparams)     
 
     #m.export("model.tflite", "tflite", (3, 224, 224))
 
-    m.export("model.tflite", "tflite", (3, 224, 224))
+    #m.export("model.tflite", "tflite", (3, 224, 224))
 
-    #m.export("model.tflite", "tflite", (3, 224, 224), batch_quant=batch[0].permute(0,3,2,1))
+    print(batch[0].permute(0,3,2,1).shape)
+
+    #torch.randn(1, 224,224, 3)
+
+    m.export("model.tflite", "tflite", (3, 224, 224), batch_quant=batch[0])
 
     #convert.convert_to_tflite(m, "tflite", batch_quant=torch.randn(224,224,3))
