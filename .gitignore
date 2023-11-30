@@ -31,6 +31,9 @@
 04/data/training_reshaped
 04/data/test_reshaped_stretch
 04/data/training_reshaped_stretch
+04/data/train_cropped_face_first_padding_resize
+04/data/test_cropped_face_first_padding_resize
+04/data/train_padding_resize
 
 **.pth
 

@@ -90,23 +90,23 @@ if __name__ == "__main__":
         ] 
     )
     trainset = FacialKeypointsDataset(
-        #root_dir="./data/training_reshaped_stretch/", csv_file="./data/training_frames_keypoints_resized.csv", transform=train_transform
-        root_dir="../../data/training_reshaped_stretch/", csv_file="../../data/training_frames_keypoints_resized.csv", transform=train_transform
+        #root_dir="../../data/training_reshaped_stretch/", csv_file="../../data/training_frames_keypoints_resized.csv", transform=train_transform
+        root_dir="../../data/train_cropped_face_first_padding_resize/", csv_file="../../data/train_cropped_face_first_padding_resize.csv", transform=train_transform
     )
     testset = FacialKeypointsDataset(
-        #root_dir="./data/test_reshaped_stretch/", csv_file="./data/test_frames_keypoints_resized.csv", transform=transform
-        root_dir="../../data/test_reshaped_stretch/", csv_file="../../data/test_frames_keypoints_resized.csv", transform=transform
+        #root_dir="../../data/test_reshaped_stretch/", csv_file="../../data/test_frames_keypoints_resized.csv", transform=transform
+        root_dir="../../data/test_cropped_face_first_padding_resize/", csv_file="../../data/test_cropped_face_first_padding_resize.csv", transform=transform
     )               
 
     train_loader = torch.utils.data.DataLoader(
         trainset, batch_size=batch_size, 
         shuffle=True, 
-        num_workers=1,            
+        num_workers=6,            
     )
     test_loader = torch.utils.data.DataLoader(
         testset, batch_size=batch_size, 
         shuffle=False, 
-        num_workers=1,
+        num_workers=6,
     )
     
     save_parameters(m, hparams)
@@ -116,10 +116,10 @@ if __name__ == "__main__":
     epochs = hparams.epochs 
 
     m.train(
-        epochs=1,
+        epochs=epochs,
         datasets={"train": train_loader, "val": test_loader},
         metrics=[acc],
         debug=hparams.debug,
     )
     
-    m.export("output.tflite", "tflite", (3, 224, 224))
+    #m.export("output.tflite", "tflite", (3, 224, 224))
