@@ -25,7 +25,7 @@ class FacialKeypointsDataset(Dataset):
         return len(self.key_pts_frame)
 
     def __getitem__(self, idx):
-        image_name = os.path.join(self.root_dir, self.key_pts_frame.iloc[idx, 0])
+        image_name = os.path.join(self.root_dir, self.key_pts_frame.iloc[idx, 0]).strip()
 
         image = np.asarray(Image.open(image_name), dtype=np.float32)
 
